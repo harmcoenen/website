@@ -68,7 +68,7 @@ function presentTimeslots($dir) {
         for($index = 0; $index < $n_timeslots; $index++) {
             $timeslot = $timeslots[$index];
             if (($index % $coloms) == 0) echo("<tr>");
-            echo("<td><button onclick=\"location.href='../recordings.php?timeslot=$timeslot'\" class=\"button\">$timeslot</button></td>");
+            echo("<td><button onclick=\"location.href='../recordings.php?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
             if ((($index + 1) % $coloms) == 0) echo("</tr>");
         }
         echo("</table></center>");
@@ -78,23 +78,41 @@ function presentTimeslots($dir) {
 }
 
 function presentPictures($timeslot) {
-    echo "timeslot is [$timeslot]" . "<br>";
     if (is_dir($timeslot)) {
         chdir($timeslot);
         printPath();
 
+        $coloms = 6;
         $pictures = glob("*.jpeg");
-        echo "Number of pictures found is: " . count($pictures) . "<br>";
-        foreach ($pictures as $picture) {
-            echo "[$picture], ";
+        $n_pictures = count($pictures);
+        echo("<center><table style='width:90%'>");
+        echo("<th colspan=\"$coloms\">$n_pictures pictures found</th>");
+        for($index = 0; $index < $n_pictures; $index++) {
+            $picture = $pictures[$index];
+            if (($index % $coloms) == 0) echo("<tr>");
+            echo("<td><button onclick=\"location.href='../../recordings.php?picture=$timeslot/$picture'\" class=\"button\">$picture</button></td>");
+            if ((($index + 1) % $coloms) == 0) echo("</tr>");
         }
+        echo("</table></center>");
     } else {
         echo "[$timeslot] is not a directory" . "<br>";
     }
 }
 
-if (isset($_GET['timeslot'])) {
-    presentPictures(RECORDINGS_DIRECTORY . "/" . $_GET["timeslot"]);
+function presentPicture($picture) {
+    echo "Picture is [$picture]" . "<br>";
+    if (is_file($picture)) {
+        printPath();
+        echo("<img src='$picture'></img>");
+    } else {
+        echo "[$picture] is not a regular file" . "<br>";
+    }
+}
+
+if (isset($_GET['picture'])) {
+    presentPicture($_GET["picture"]);
+} else if (isset($_GET['timeslot'])) {
+    presentPictures($_GET["timeslot"]);
 } else {
     presentTimeslots(RECORDINGS_DIRECTORY);
 }
@@ -104,7 +122,6 @@ if (isset($_GET['timeslot'])) {
 //$b = scandir($thisdir, SCANDIR_SORT_DESCENDING);
 //print_r($a);
 //print_r($b);
-//echo '<img src="recordings/2019.01.25-14hrs/2019_01_25_14_04_26.jpeg" />';
 
 $stoptime = microtime(true);
 

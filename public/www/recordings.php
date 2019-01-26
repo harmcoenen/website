@@ -3,24 +3,39 @@
 <head>
 <style>
 .button {
-  padding: 5px 30px;
-  font-size: 16px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #ff33cc;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+    padding: 5px 30px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #cc0099;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #cc0099}
+.button:hover {
+    background-color: #990073
+}
 
 .button:active {
-  background-color: #cc0099;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #990033;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+table {
+    border: 1px solid #ddd;
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    border: 1px dotted black;
+    padding: 10px;
 }
 </style>
 </head>
@@ -30,31 +45,31 @@
 <br><br>
 
 <?php
-// http://www.familiecoenen.nl/recordings.php
-// http://www.familiecoenen.nl/recordings.php?timeslot=2019.01.25-17hrs
 
 $starttime = microtime(true);
 define("RECORDINGS_DIRECTORY", "recordings");
 
+function printPath() {
+        $d = dir(getcwd());
+        echo "<center>Path: " . $d->path . "<br></center>";
+        $d->close(); 
+}
+
 function presentTimeslots($dir) {
     if (is_dir($dir)) {
-        echo "[$dir] is a directory" . "<br>";
         chdir($dir);
+        printPath();
 
-        $d = dir(getcwd());
-        echo "Handle: " . $d->handle . ", Path: " . $d->path . "<br>";
-        $d->close(); 
-
+        $coloms = 6;
         $timeslots = glob("*", GLOB_ONLYDIR);
         $n_timeslots = count($timeslots);
-        echo "$n_timeslots timeslots found" . "<br>";
-        echo("<center><table style='width:80%'>");
+        echo("<center><table style='width:90%'>");
+        echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
         for($index = 0; $index < $n_timeslots; $index++) {
             $timeslot = $timeslots[$index];
-            if (($index % 6) == 0) echo("<tr>");
-            // echo("<td><a href='../recordings.php?timeslot=$timeslot'>[$timeslot]</a></td>");
+            if (($index % $coloms) == 0) echo("<tr>");
             echo("<td><button onclick=\"location.href='../recordings.php?timeslot=$timeslot'\" class=\"button\">$timeslot</button></td>");
-            if ((($index + 1) % 6) == 0) echo("</tr>");
+            if ((($index + 1) % $coloms) == 0) echo("</tr>");
         }
         echo("</table></center>");
     } else {
@@ -65,12 +80,8 @@ function presentTimeslots($dir) {
 function presentPictures($timeslot) {
     echo "timeslot is [$timeslot]" . "<br>";
     if (is_dir($timeslot)) {
-        echo "[$timeslot] is a directory" . "<br>";
         chdir($timeslot);
-
-        $d = dir(getcwd());
-        echo "Handle: " . $d->handle . ", Path: " . $d->path . "<br>";
-        $d->close(); 
+        printPath();
 
         $pictures = glob("*.jpeg");
         echo "Number of pictures found is: " . count($pictures) . "<br>";

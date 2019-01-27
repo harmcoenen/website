@@ -2,6 +2,11 @@
 <html>
 <head>
 <style>
+body
+{
+  background-color: #ccccff;
+}
+
 .button {
     padding: 5px 30px;
     font-size: 16px;
@@ -82,7 +87,7 @@ function presentPictures($timeslot) {
         chdir($timeslot);
         printPath();
 
-        $coloms = 6;
+        $coloms = 4;
         $pictures = glob("*.jpeg");
         $n_pictures = count($pictures);
         echo("<center><table style='width:90%'>");
@@ -103,7 +108,7 @@ function presentPicture($picture) {
     echo "Picture is [$picture]" . "<br>";
     if (is_file($picture)) {
         printPath();
-        echo("<img src='$picture'></img>");
+        echo("<center><img src='$picture'></img></center>");
     } else {
         echo "[$picture] is not a regular file" . "<br>";
     }

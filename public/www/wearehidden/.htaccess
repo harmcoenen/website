@@ -1,4 +1,0 @@
-AuthName "Reserved Area"
-AuthType Basic
-AuthUserFile /www/AMENNLHOME/hostnd/8/6/8/868864/www/htdocs/public/www/wearehidden/.htpasswd
-require valid-user

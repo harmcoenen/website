@@ -65,18 +65,22 @@ function presentTimeslots($dir) {
         chdir($dir);
         printPath();
 
-        $coloms = 6;
-        $timeslots = glob("*", GLOB_ONLYDIR);
-        $n_timeslots = count($timeslots);
-        echo("<center><table style='width:90%'>");
-        echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
-        for($index = 0; $index < $n_timeslots; $index++) {
-            $timeslot = $timeslots[$index];
-            if (($index % $coloms) == 0) echo("<tr>");
-            echo("<td><button onclick=\"location.href='../recordings.php?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
-            if ((($index + 1) % $coloms) == 0) echo("</tr>");
+        if ($timeslots = glob("*", GLOB_ONLYDIR)) {
+            $coloms = 6;
+            rsort($timeslots);
+            $n_timeslots = count($timeslots);
+            echo("<center><table style='width:90%'>");
+            echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
+            for($index = 0; $index < $n_timeslots; $index++) {
+                $timeslot = $timeslots[$index];
+                if (($index % $coloms) == 0) echo("<tr>");
+                echo("<td><button onclick=\"location.href='../recordings.php?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
+                if ((($index + 1) % $coloms) == 0) echo("</tr>");
+            }
+            echo("</table></center>");
+        } else {
+            echo "<center><h1>No timeslots found</h1></center>" . "<br>";
         }
-        echo("</table></center>");
     } else {
         echo "[$dir] is not a directory" . "<br>";
     }
@@ -87,18 +91,22 @@ function presentPictures($timeslot) {
         chdir($timeslot);
         printPath();
 
-        $coloms = 4;
-        $pictures = glob("*.jpeg");
-        $n_pictures = count($pictures);
-        echo("<center><table style='width:90%'>");
-        echo("<th colspan=\"$coloms\">$n_pictures pictures found</th>");
-        for($index = 0; $index < $n_pictures; $index++) {
-            $picture = $pictures[$index];
-            if (($index % $coloms) == 0) echo("<tr>");
-            echo("<td><button onclick=\"location.href='../../recordings.php?picture=$timeslot/$picture'\" class=\"button\">$picture</button></td>");
-            if ((($index + 1) % $coloms) == 0) echo("</tr>");
+        if ($pictures = glob("*.jpeg")) {
+            $coloms = 4;
+            rsort($pictures);
+            $n_pictures = count($pictures);
+            echo("<center><table style='width:90%'>");
+            echo("<th colspan=\"$coloms\">$n_pictures pictures found</th>");
+            for($index = 0; $index < $n_pictures; $index++) {
+                $picture = $pictures[$index];
+                if (($index % $coloms) == 0) echo("<tr>");
+                echo("<td><button onclick=\"location.href='../../recordings.php?picture=$timeslot/$picture'\" class=\"button\">$picture</button></td>");
+                if ((($index + 1) % $coloms) == 0) echo("</tr>");
+            }
+            echo("</table></center>");
+        } else {
+            echo "<center><h1>No pictures found</h1></center>" . "<br>";
         }
-        echo("</table></center>");
     } else {
         echo "[$timeslot] is not a directory" . "<br>";
     }

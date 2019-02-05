@@ -51,6 +51,8 @@ $starttime = microtime(true);
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings.php");
 define("RECORDINGS_DIRECTORY", "recordings");
 define("RECORDINGS_EXTENSION", "*.jpeg");
+define("RECORDINGS_IPCAM", "*[^p][^y].jpeg");
+define("RECORDINGS_PICAM", "*_py.jpeg");
 
 function getBase($path) {
     $last_part = strrchr($path, "/");
@@ -67,12 +69,15 @@ function getFile($path) {
 echo("<center><table style='width:40%; border:0px'><tr>");
 if (isset($_GET['picture'])) {
     $refesh_page = getBase($_GET["picture"]);
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Back to all timeslots</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">Step back</button></th>");
+    $filter = getFilter();
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'\" class=\"button\">Step back</button></th>");
 } else if (isset($_GET['timeslot'])) {
     $refesh_page = $_GET["timeslot"];
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Back to all timeslots</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">Refresh this timeslot</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">All</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
 } else {
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
 }
@@ -82,6 +87,22 @@ function printPath() {
         $d = dir(getcwd());
         echo("<center>Path: " . $d->path . "<br></center>");
         $d->close(); 
+}
+
+function getFilter() {
+    $filter = "";
+    if (isset($_GET['picam'])) $filter = "picam";
+    if (isset($_GET['ipcam'])) $filter = "ipcam";
+    if (isset($_GET['picam']) && isset($_GET['ipcam'])) $filter = "picam&ipcam";
+    return $filter;
+}
+
+function getGlobRule() {
+    $glob_rule = RECORDINGS_EXTENSION;
+    if (isset($_GET['picam'])) $glob_rule = RECORDINGS_PICAM;
+    if (isset($_GET['ipcam'])) $glob_rule = RECORDINGS_IPCAM;
+    if (isset($_GET['picam']) && isset($_GET['ipcam'])) $glob_rule = RECORDINGS_EXTENSION;
+    return $glob_rule;
 }
 
 function presentTimeslots($dir) {
@@ -115,7 +136,8 @@ function presentPictures($timeslot) {
         chdir($timeslot);
         printPath();
 
-        if ($pictures = glob(RECORDINGS_EXTENSION)) {
+        $filter = getFilter();
+        if ($pictures = glob(getGlobRule())) {
             $coloms = 4;
             rsort($pictures);
             $n_pictures = count($pictures);
@@ -124,7 +146,7 @@ function presentPictures($timeslot) {
             for($index = 0; $index < $n_pictures; $index++) {
                 $picture = $pictures[$index];
                 if (($index % $coloms) == 0) echo("<tr>");
-                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture'\" class=\"button\">$picture</button></td>");
+                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture</button></td>");
                 if ((($index + 1) % $coloms) == 0) echo("</tr>");
             }
             echo("</table></center>");
@@ -142,10 +164,9 @@ function presentPicture($picture) {
         $picture_file = getFile($picture);
         if (is_dir($picture_base)) {
             chdir($picture_base);
-            echo("<center>Base is [$picture_base], File is [$picture_file]</center><br>");
-            echo("<center>Picture fullname is [$picture]</center><br>");
 
-            if ($pictures = glob(RECORDINGS_EXTENSION)) {
+            $filter = getFilter();
+            if ($pictures = glob(getGlobRule())) {
                 rsort($pictures);
                 $n_pictures = count($pictures);
                 $index = 0;
@@ -157,13 +178,13 @@ function presentPicture($picture) {
                 echo("<center><table style='width:100%; border:0px'><tr>");
                 if ($prev_index >= 0) {
                     $prev_file = $pictures[$prev_index];
-                    echo("<td style='width:50%; border:0px' align=\"left\"><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$picture_base/$prev_file'\" class=\"button\">PREVIOUS</button></td>");
+                    echo("<td style='width:50%; border:0px' align=\"left\"><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$picture_base/$prev_file&$filter'\" class=\"button\">LATER</button></td>");
                 } else {
                     echo("<td style='width:50%; border:0px'></td>");
                 }
                 if ($next_index < $n_pictures) {
                     $next_file = $pictures[$next_index];
-                    echo("<td style='width:50%; border:0px' align=\"right\"><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$picture_base/$next_file'\" class=\"button\">NEXT</button></td>");
+                    echo("<td style='width:50%; border:0px' align=\"right\"><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$picture_base/$next_file&$filter'\" class=\"button\">EARLIER</button></td>");
                 } else {
                     echo("<td style='width:50%; border:0px'></td>");
                 }
@@ -172,6 +193,8 @@ function presentPicture($picture) {
                 echo("<center><h1>No more pictures found</h1></center>");
             }
             echo("<center><img src='$picture'></img></center><br>");
+            echo("<center>Base is [$picture_base], File is [$picture_file]</center><br>");
+            echo("<center>Picture fullname is [$picture]</center><br>");
         } else {
             echo("<center><h1>[$picture_base] is not a directory</h1></center>");
         }

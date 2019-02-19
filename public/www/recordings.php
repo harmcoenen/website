@@ -83,10 +83,15 @@ if (isset($_GET['picture'])) {
 }
 echo("</tr></table></center><br><br>");
 
+function humanReadable($bytes, $decimals = 2) {
+    $size = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
+    $factor = floor((strlen($bytes) - 1) / 3);
+    return sprintf("%.{$decimals}f ", $bytes / pow(1024, $factor)) . @$size[$factor];
+}
+
 function printPath() {
-        $d = dir(getcwd());
-        echo("<center>Path: " . $d->path . "<br></center>");
-        $d->close(); 
+        $path = getcwd();
+        echo("<center>Path: " . $path . "<br></center>");
 }
 
 function getFilter() {
@@ -139,14 +144,20 @@ function presentPictures($timeslot) {
         $filter = getFilter();
         if ($pictures = glob(getGlobRule())) {
             $coloms = 4;
+            $totalsize = 0;
             rsort($pictures);
             $n_pictures = count($pictures);
             echo("<center><table style='width:90%'>");
-            echo("<th colspan=\"$coloms\">$n_pictures pictures found</th>");
+            for($index = 0; $index < $n_pictures; $index++) {
+                $totalsize += filesize($pictures[$index]);
+            }
+            $totalsize = humanReadable($totalsize);
+            echo("<th colspan=\"$coloms\">$n_pictures pictures found (total size $totalsize)</th>");
             for($index = 0; $index < $n_pictures; $index++) {
                 $picture = $pictures[$index];
+                $picturesize = humanReadable(filesize($picture));
                 if (($index % $coloms) == 0) echo("<tr>");
-                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture</button></td>");
+                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)</button></td>");
                 if ((($index + 1) % $coloms) == 0) echo("</tr>");
             }
             echo("</table></center>");

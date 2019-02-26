@@ -153,8 +153,6 @@ function presentPictures($timeslot) {
         if ($pictures = glob(getGlobRule())) {
             $coloms = 4;
             $totalsize = 0;
-            $desired_width = 50;
-            $thumbnail = "tmp.jpg";
             rsort($pictures);
             $n_pictures = count($pictures);
             echo("<center><table style='width:90%'>");
@@ -166,11 +164,17 @@ function presentPictures($timeslot) {
             for($index = 0; $index < $n_pictures; $index++) {
                 $picture = $pictures[$index];
                 $picturesize = humanReadable(filesize($picture));
-                //makeThumbnail($picture, $thumbnail, $desired_width);
+                // Get original size information from picture
+                list($org_width, $org_height, $type, $attr) = getimagesize($picture);
+                // Divide original size by 16 to get small thumbnail icons
+                // 1280x720 (divide by 16 = 80x45) or 1600x1200 (divide by 16 = 100x75)
+                $tn_width = floor($org_width / 16);
+                $tn_height = floor($org_height / 16);
+                
                 if (($index % $coloms) == 0) echo("<tr>");
-                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)<br><img src=$thumbnail alt=\"not found\"></img></button></td>");
-                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)<br><img src=$picture width=\"90\" height=\"50\" alt=\"not found\"></img></button></td>");
-                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)</button></td>");
+                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)</button></td>");
+                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br><img src=$timeslot/$picture width=$tn_width height=$tn_height alt=\"not found\"></img><br>($picturesize)<br>($tn_width x $tn_height), ($org_width x $org_height)</button></td>");
+                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br><br><img src=$timeslot/$picture width=$tn_width height=$tn_height alt=\"not found\"></img><br>($picturesize)</button></td>");
                 if ((($index + 1) % $coloms) == 0) echo("</tr>");
             }
             echo("</table></center>");

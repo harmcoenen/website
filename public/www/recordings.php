@@ -47,13 +47,15 @@ th {
 <body>
 
 <?php
-$starttime = microtime(true);
+
+/* Define section */
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings.php");
 define("RECORDINGS_DIRECTORY", "recordings");
 define("RECORDINGS_EXTENSION", "*.jpeg");
 define("RECORDINGS_IPCAM", "*[^p][^y].jpeg");
 define("RECORDINGS_PICAM", "*_py.jpeg");
 
+/* Function section */
 function getBase($path) {
     $last_part = strrchr($path, "/");
     $base = str_replace($last_part, '', $path);
@@ -65,23 +67,6 @@ function getFile($path) {
     $file = substr($last_part, 1);
     return $file;
 }
-
-echo("<center><table style='width:40%; border:0px'><tr>");
-if (isset($_GET['picture'])) {
-    $refesh_page = getBase($_GET["picture"]);
-    $filter = getFilter();
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'\" class=\"button\">Step back</button></th>");
-} else if (isset($_GET['timeslot'])) {
-    $refesh_page = $_GET["timeslot"];
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">All</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
-} else {
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
-}
-echo("</tr></table></center><br><br>");
 
 function humanReadable($bytes, $decimals = 2) {
     $size = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
@@ -108,6 +93,29 @@ function getGlobRule() {
     if (isset($_GET['ipcam'])) $glob_rule = RECORDINGS_IPCAM;
     if (isset($_GET['picam']) && isset($_GET['ipcam'])) $glob_rule = RECORDINGS_EXTENSION;
     return $glob_rule;
+}
+
+/* Function to create thumbnails */
+function makeThumbnail($src, $dest, $desired_width) {
+    /* Read the source image */
+    $source_image = imagecreatefromjpeg($src);
+    $width = imagesx($source_image);
+    $height = imagesy($source_image);
+
+    /* Find the “desired height” of this thumbnail, relative to the desired width */
+    $desired_height = floor($height * ($desired_width / $width));
+
+    /* create a new, “virtual” image */
+    $virtual_image = imagecreatetruecolor($desired_width, $desired_height);
+
+    /* Copy source image at a resized size */
+    imagecopyresampled($virtual_image, $source_image, 0, 0, 0, 0, $desired_width, $desired_height, $width, $height);
+
+    /* Create the physical thumbnail image to its destination */
+    imagejpeg($virtual_image, $dest);
+
+    /* Free up memory */
+    imagedestroy($virtual_image);
 }
 
 function presentTimeslots($dir) {
@@ -145,6 +153,8 @@ function presentPictures($timeslot) {
         if ($pictures = glob(getGlobRule())) {
             $coloms = 4;
             $totalsize = 0;
+            $desired_width = 50;
+            $thumbnail = "tmp.jpg";
             rsort($pictures);
             $n_pictures = count($pictures);
             echo("<center><table style='width:90%'>");
@@ -156,7 +166,10 @@ function presentPictures($timeslot) {
             for($index = 0; $index < $n_pictures; $index++) {
                 $picture = $pictures[$index];
                 $picturesize = humanReadable(filesize($picture));
+                //makeThumbnail($picture, $thumbnail, $desired_width);
                 if (($index % $coloms) == 0) echo("<tr>");
+                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)<br><img src=$thumbnail alt=\"not found\"></img></button></td>");
+                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)<br><img src=$picture width=\"90\" height=\"50\" alt=\"not found\"></img></button></td>");
                 echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?picture=$timeslot/$picture&$filter'\" class=\"button\">$picture<br>($picturesize)</button></td>");
                 if ((($index + 1) % $coloms) == 0) echo("</tr>");
             }
@@ -213,6 +226,26 @@ function presentPicture($picture) {
         echo("<center><h1>[$picture] is not a regular file</h1></center>");
     }
 }
+
+/* Main program */
+$starttime = microtime(true);
+
+echo("<center><table style='width:40%; border:0px'><tr>");
+if (isset($_GET['picture'])) {
+    $refesh_page = getBase($_GET["picture"]);
+    $filter = getFilter();
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'\" class=\"button\">Step back</button></th>");
+} else if (isset($_GET['timeslot'])) {
+    $refesh_page = $_GET["timeslot"];
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">All</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
+} else {
+    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
+}
+echo("</tr></table></center><br><br>");
 
 if (isset($_GET['picture'])) {
     presentPicture($_GET["picture"]);

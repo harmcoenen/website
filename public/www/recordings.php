@@ -31,11 +31,13 @@ body
 }
 
 table {
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
+    border-collapse: collapse;
 }
 
 td {
     padding: 10px;
+    text-align: center;
 }
 
 th {
@@ -118,6 +120,15 @@ function makeThumbnail($src, $dest, $desired_width) {
     imagedestroy($virtual_image);
 }
 
+function toggleBackGroundColor($bg_color) {
+    if ($bg_color == "#cc99ff") {
+        $bg_color = "#ccccff";
+    } else {
+        $bg_color = "#cc99ff";
+    }
+    return $bg_color;
+}
+
 function presentTimeslots($dir) {
     if (is_dir($dir)) {
         chdir($dir);
@@ -125,13 +136,16 @@ function presentTimeslots($dir) {
 
         if ($timeslots = glob("*", GLOB_ONLYDIR)) {
             $coloms = 6;
+            $slots_per_period = 24;
+            $bg_color = "#ccccff";
             rsort($timeslots);
             $n_timeslots = count($timeslots);
             echo("<center><table style='width:90%'>");
             echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
             for($index = 0; $index < $n_timeslots; $index++) {
                 $timeslot = $timeslots[$index];
-                if (($index % $coloms) == 0) echo("<tr>");
+                if (($index % $slots_per_period) == 0) $bg_color = toggleBackGroundColor($bg_color);
+                if (($index % $coloms) == 0) echo("<tr bgcolor=$bg_color>");
                 echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
                 if ((($index + 1) % $coloms) == 0) echo("</tr>");
             }

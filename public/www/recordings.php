@@ -51,6 +51,7 @@ th {
 <?php
 
 /* Define section */
+define("MAIN_URL", "http://www.familiecoenen.nl");
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings.php");
 define("RECORDINGS_DIRECTORY", "recordings");
 define("RECORDINGS_EXTENSION", "*.jpeg");
@@ -261,6 +262,7 @@ if (isset($_GET['picture'])) {
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
 } else {
+    echo("<th style='border:0px'><button onclick=\"location.href='" . MAIN_URL . "'\" class=\"button\">www.familiecoenen.nl</button></th>");
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
 }
 echo("</tr></table></center><br><br>");

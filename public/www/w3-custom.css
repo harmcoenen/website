@@ -1,6 +1,10 @@
+/* Padding */
+.w3-padding-4{padding-top:4px!important;padding-bottom:4px!important}
+.w3-padding-8{padding-top:8px!important;padding-bottom:8px!important}
 /* Colors */
 .w3-pale-purple,.w3-hover-pale-purple:hover{color:#000!important;background-color:#ccccff!important}
 .w3-text-pale-purple,.w3-hover-text-pale-purple:hover{color:#ccccff!important}
+.w3-border-pale-purple,.w3-hover-border-pale-purple:hover{border-color:#ccccff!important}
 /* Fonts */
 .w3-tangerine{font-family:"Tangerine",serif}
 /* Animations */

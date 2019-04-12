@@ -19,32 +19,65 @@
 
     <body class="w3-pale-purple">
 
-        <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom">
-            <a href="http://www.familiecoenen.nl">
-                <img class="w3-left w3-circle" src="images/titelfoto.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.7" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">
-            </a>
-            <h1 class="w3-right" style="text-shadow:2px 2px 4px #444">
-                <b>Website: Familie Coenen</b>
-            </h1>
+        <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
+            <a href="http://www.familiecoenen.nl"><img class="w3-left w3-circle" src="images/titelfoto.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.7" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"></a>
+            <a href="https://beugen.info"><button class="w3-btn w3-border w3-border-purple w3-round-large">Info Beugen</button></a>
+            <a href="http://www.vios38.nl"><button class="w3-btn w3-border w3-border-purple w3-round-large">VIOS '38 </button></a>
+            <a href="http://www.w3schools.com"><button class="w3-btn w3-border w3-border-purple w3-round-large">w3schools </button></a>
+            <a href="http://www.familiecoenen.nl/cms"><button class="w3-btn w3-border w3-border-purple w3-round-large">CMS </button></a>
+            <a href="http://www.familiecoenen.nl/cms/administrator"><button class="w3-btn w3-border w3-border-purple w3-round-large">CMS admin</button></a>
+            <a href="http://www.familiecoenen.nl"><h1 class="w3-right" style="text-shadow:2px 2px 4px #444"><b>Website: Familie Coenen</b></h1></a>
         </header>
 
-        <div class="w3-display-container w3-center">
-            <img class="w3-opacity-max" src="images/favicon.jpg" alt="Family Picture" style="width:30%">
-            <p class="w3-padding w3-display-topmiddle w3-tangerine w3-jumbo">
-                <b>U wordt automatisch doorgestuurd naar
-                    <a style="font-size:36px;font-family:Verdana,sans-serif" href="http://www.familiecoenen.nl/cms">CMS</a>
-                </b>
-            </p>
-            <!-- <div class="w3-container w3-center w3-animate-bottom-custom">
-                <img width="604" height="400" alt="Family Picture" src="images/titelfoto.jpg">
-            </div> -->
+       <div class="w3-container">
+            <div class="w3-bar w3-black">
+                <button class="w3-bar-item w3-button tablink w3-red" onclick="openItem(event,'London')">London</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Paris')">Paris</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Tokyo')">Tokyo</button>
+            </div>
+
+            <div id="London" class="w3-container w3-border item">
+                <h2>London</h2>
+                <p>London is the capital city of England.</p>
+            </div>
+
+            <div id="Paris" class="w3-container w3-border item" style="display:none">
+                <h2>Paris</h2>
+                <p>Paris is the capital of France.</p> 
+            </div>
+
+            <div id="Tokyo" class="w3-container w3-border item" style="display:none">
+                <h2>Tokyo</h2>
+                <p>Tokyo is the capital of Japan.</p>
+            </div>
         </div>
 
-        <footer class="w3-container w3-card w3-center w3-pale-purple w3-text-pale-purple w3-margin-top w3-margin-bottom">
-            <h2>
-                <a href="http://www.familiecoenen.nl/recordings.php">________</a>
-            </h2>
+        <footer class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
+            <p id="copyrightyear" class="w3-left w3-text-black w3-small"></p>
+            <a href="http://www.familiecoenen.nl/recordings.php"><button class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large">recordings</button></a>
         </footer>
+
+        <script>
+            function openItem(event, itemName) {
+                var i, items, tablinks;
+
+                items = document.getElementsByClassName("item");
+                for (i = 0; i < items.length; i++) {
+                    items[i].style.display = "none";
+                }
+
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < items.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                }
+
+                document.getElementById(itemName).style.display = "block";
+                event.currentTarget.className += " w3-red";
+            }
+
+            var d = new Date();
+            document.getElementById("copyrightyear").innerHTML = "&copy; " + d.getFullYear() + " Familie Coenen";
+        </script>
 
     </body>
 </html>

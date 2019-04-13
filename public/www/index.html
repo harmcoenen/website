@@ -31,24 +31,49 @@
 
        <div class="w3-container">
             <div class="w3-bar w3-black">
-                <button class="w3-bar-item w3-button tablink w3-red" onclick="openItem(event,'London')">London</button>
-                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Paris')">Paris</button>
-                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Tokyo')">Tokyo</button>
+                <button class="w3-bar-item w3-button tablink w3-red" onclick="openItem(event,'Pronkstukken')">Pronkstukken</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Opdracht')">Opdracht</button>
+                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Zelf')">Zelf</button>
             </div>
 
-            <div id="London" class="w3-container w3-border item">
-                <h2>London</h2>
-                <p>London is the capital city of England.</p>
+            <div id="Pronkstukken" class="w3-container w3-animate-opacity item">
+                <div class="w3-row-padding w3-margin-top">
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%" onclick="document.getElementById('pr01').style.display='block'"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
+                  <div id="pr01" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr01').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/favicon.jpg" style="width:100%"> </div> </div>
+
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%" onclick="document.getElementById('pr02').style.display='block'"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
+                  <div id="pr02" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr02').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/famcoenen.cms.jpg" style="width:100%"> </div> </div>
+
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%" onclick="document.getElementById('pr03').style.display='block'"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
+                  <div id="pr03" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr03').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/titelfoto.jpg" style="width:100%"> </div> </div>
+
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%" onclick="document.getElementById('pr04').style.display='block'"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
+                  <div id="pr04" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr04').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/famcoenen.jpg" style="width:100%"> </div> </div>
+                </div>
+                <div class="w3-row-padding w3-margin-top">
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
+                </div>
             </div>
 
-            <div id="Paris" class="w3-container w3-border item" style="display:none">
-                <h2>Paris</h2>
-                <p>Paris is the capital of France.</p> 
+            <div id="Opdracht" class="w3-container w3-border w3-animate-opacity item" style="display:none">
+                <div class="w3-row-padding w3-margin-top">
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
+                </div>
             </div>
 
-            <div id="Tokyo" class="w3-container w3-border item" style="display:none">
-                <h2>Tokyo</h2>
-                <p>Tokyo is the capital of Japan.</p>
+            <div id="Zelf" class="w3-container w3-border w3-animate-opacity item" style="display:none">
+                <div class="w3-row-padding w3-margin-top">
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
+                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
+                </div>
             </div>
         </div>
 

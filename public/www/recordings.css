@@ -1,0 +1,37 @@
+.button {
+    padding: 5px 30px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #cc0099;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:hover {
+    background-color: #990073
+}
+
+.button:active {
+    background-color: #990033;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+table {
+    border: 0px solid #ddd;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    border: 1px dotted black;
+    padding: 10px;
+}

@@ -3,7 +3,7 @@
     <head>
         <title>Familie Coenen</title>
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="3; URL=http://www.familiecoenen.nl/cms">
+        <!-- <meta http-equiv="refresh" content="3; URL=http://www.familiecoenen.nl/cms"> -->
         <meta name="generator" content="Notepad++" />
         <meta name="copyright" content="(c) 2019 Harm Coenen" />
         <meta name="description" content="Familie Coenen WebSite - Informatie over de familie Coenen te Beugen" />
@@ -21,65 +21,130 @@
 
         <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
             <a href="http://www.familiecoenen.nl"><img class="w3-left w3-circle" src="images/titelfoto.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.7" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"></a>
-            <a href="https://beugen.info"><button class="w3-btn w3-border w3-border-purple w3-round-large">Info Beugen</button></a>
-            <a href="http://www.vios38.nl"><button class="w3-btn w3-border w3-border-purple w3-round-large">VIOS '38 </button></a>
-            <a href="http://www.w3schools.com"><button class="w3-btn w3-border w3-border-purple w3-round-large">w3schools </button></a>
-            <a href="http://www.familiecoenen.nl/cms"><button class="w3-btn w3-border w3-border-purple w3-round-large">CMS </button></a>
-            <a href="http://www.familiecoenen.nl/cms/administrator"><button class="w3-btn w3-border w3-border-purple w3-round-large">CMS admin</button></a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/cms">CMS Artikelen</a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/recordings.php">Recordings</a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="http://www.w3schools.com">w3schools</a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="http://www.vios38.nl">VIOS '38</a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="https://beugen.info">Info Beugen</a>
+            <a class="w3-btn w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email</a>
             <a href="http://www.familiecoenen.nl"><h1 class="w3-right" style="text-shadow:2px 2px 4px #444"><b>Website: Familie Coenen</b></h1></a>
         </header>
 
        <div class="w3-container">
-            <div class="w3-bar w3-black">
-                <button class="w3-bar-item w3-button tablink w3-red" onclick="openItem(event,'Pronkstukken')">Pronkstukken</button>
-                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Opdracht')">Opdracht</button>
-                <button class="w3-bar-item w3-button tablink" onclick="openItem(event,'Zelf')">Zelf</button>
+            <div class="w3-bar w3-card-4 w3-purple w3-text-white">
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-yellow" onclick="openItem(event,'Pronkstukken')">Pronkstukken</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'Workshop_Collegas')">Workshop met collega's</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'Vlinders')">Vlinders</button>
             </div>
 
             <div id="Pronkstukken" class="w3-container w3-animate-opacity item">
                 <div class="w3-row-padding w3-margin-top">
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%" onclick="document.getElementById('pr01').style.display='block'"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
-                  <div id="pr01" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr01').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/favicon.jpg" style="width:100%"> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/reiger.jpg" alt="" style="width:100%" onclick="document.getElementById('id0001').style.display='block'">
+                        <div class="w3-container"><h5>Reiger voor buiten</h5></div>
+                    </div>
+                    <div id="id0001" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0001').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/reiger.jpg" alt="" style="width:100%">
+                    </div></div>
 
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%" onclick="document.getElementById('pr02').style.display='block'"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
-                  <div id="pr02" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr02').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/famcoenen.cms.jpg" style="width:100%"> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/cirkel_koe_1.jpg" alt="" style="width:100%" onclick="document.getElementById('id0002').style.display='block'">
+                        <div class="w3-container"><h5>Koe in ring</h5></div>
+                    </div>
+                    <div id="id0002" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0002').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/cirkel_koe_1.jpg" alt="" style="width:100%">
+                    </div></div>
 
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%" onclick="document.getElementById('pr03').style.display='block'"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
-                  <div id="pr03" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr03').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/titelfoto.jpg" style="width:100%"> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/kippen.jpg" alt="" style="width:100%" onclick="document.getElementById('id0003').style.display='block'">
+                        <div class="w3-container"><h5>Kippen</h5></div>
+                    </div>
+                    <div id="id0003" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0003').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/kippen.jpg" alt="" style="width:100%">
+                    </div></div>
 
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%" onclick="document.getElementById('pr04').style.display='block'"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
-                  <div id="pr04" class="w3-modal"> <div class="w3-modal-content"> <span onclick="document.getElementById('pr04').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span> <img src="images/famcoenen.jpg" style="width:100%"> </div> </div>
-                </div>
-                <div class="w3-row-padding w3-margin-top">
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/honden_2.jpg" alt="" style="width:100%" onclick="document.getElementById('id0004').style.display='block'">
+                        <div class="w3-container"><h5>Honden</h5></div>
+                    </div>
+                    <div id="id0004" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0004').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/honden_2.jpg" alt="" style="width:100%">
+                    </div></div>
                 </div>
             </div>
 
-            <div id="Opdracht" class="w3-container w3-border w3-animate-opacity item" style="display:none">
+            <div id="Workshop_Collegas" class="w3-container w3-animate-opacity item" style="display:none">
                 <div class="w3-row-padding w3-margin-top">
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/workshop_collega_1.jpg" alt="" style="width:100%" onclick="document.getElementById('id0005').style.display='block'">
+                        <div class="w3-container"><h5>workshop_collega_1</h5></div>
+                    </div>
+                    <div id="id0005" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0005').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/workshop_collega_1.jpg" alt="" style="width:100%">
+                    </div></div>
+
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/workshop_collega_2.jpg" alt="" style="width:100%" onclick="document.getElementById('id0006').style.display='block'">
+                        <div class="w3-container"><h5>workshop_collega_2</h5></div>
+                    </div>
+                    <div id="id0006" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0006').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/workshop_collega_2.jpg" alt="" style="width:100%">
+                    </div></div>
+
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/workshop_collega_3.jpg" alt="" style="width:100%" onclick="document.getElementById('id0007').style.display='block'">
+                        <div class="w3-container"><h5>workshop_collega_3</h5></div>
+                    </div>
+                    <div id="id0007" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0007').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/workshop_collega_3.jpg" alt="" style="width:100%">
+                    </div></div>
+
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/workshop_collega_4.jpg" alt="" style="width:100%" onclick="document.getElementById('id0008').style.display='block'">
+                        <div class="w3-container"><h5>workshop_collega_4</h5></div>
+                    </div>
+                    <div id="id0008" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0008').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/workshop_collega_4.jpg" alt="" style="width:100%">
+                    </div></div>
                 </div>
             </div>
 
-            <div id="Zelf" class="w3-container w3-border w3-animate-opacity item" style="display:none">
+            <div id="Vlinders" class="w3-container w3-animate-opacity item" style="display:none">
                 <div class="w3-row-padding w3-margin-top">
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.cms.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code CMS</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/famcoenen.jpg" style="width:100%"> <div class="w3-container"> <h5>QR-code</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/titelfoto.jpg" style="width:100%"> <div class="w3-container"> <h5>titelfoto</h5> </div> </div> </div>
-                  <div class="w3-quarter"> <div class="w3-card"> <img src="images/favicon.jpg" style="width:100%"> <div class="w3-container"> <h5>favicon</h5> </div> </div> </div>
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/muurvlinder.jpg" alt="" style="width:100%" onclick="document.getElementById('id0009').style.display='block'">
+                        <div class="w3-container"><h5>Muurvlinder</h5></div>
+                    </div>
+                    <div id="id0009" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0009').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/muurvlinder.jpg" alt="" style="width:100%">
+                    </div></div>
+
+                    <div class="w3-quarter w3-card">
+                        <img class="w3-hover-opacity-custom" src="images/rode_vlinder_op_steen.jpg" alt="" style="width:100%" onclick="document.getElementById('id0010').style.display='block'">
+                        <div class="w3-container"><h5>Rode vlinder</h5></div>
+                    </div>
+                    <div id="id0010" class="w3-modal"><div class="w3-modal-content">
+                        <span onclick="document.getElementById('id0010').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+                        <img src="images/rode_vlinder_op_steen.jpg" alt="" style="width:100%">
+                    </div></div>
+                </div>
+                <div class="w3-row-padding w3-margin-top">
                 </div>
             </div>
         </div>
 
         <footer class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
             <p id="copyrightyear" class="w3-left w3-text-black w3-small"></p>
-            <a href="http://www.familiecoenen.nl/recordings.php"><button class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large">recordings</button></a>
+            <a class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large" href="http://www.familiecoenen.nl/cms/administrator">CMS admin</a>
         </footer>
 
         <script>
@@ -93,11 +158,11 @@
 
                 tablinks = document.getElementsByClassName("tablink");
                 for (i = 0; i < items.length; i++) {
-                    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+                    tablinks[i].className = tablinks[i].className.replace(" w3-yellow", "");
                 }
 
                 document.getElementById(itemName).style.display = "block";
-                event.currentTarget.className += " w3-red";
+                event.currentTarget.className += " w3-yellow";
             }
 
             var d = new Date();

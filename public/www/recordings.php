@@ -1,56 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-body
-{
-  background-color: #ccccff;
-}
-
-.button {
-    padding: 5px 30px;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: #cc0099;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-}
-
-.button:hover {
-    background-color: #990073
-}
-
-.button:active {
-    background-color: #990033;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-}
-
-table {
-    border: 0px solid #ddd;
-    border-collapse: collapse;
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    border: 1px dotted black;
-    padding: 10px;
-}
-</style>
+    <title>Recordings</title>
+    <meta charset="UTF-8">
+    <meta name="generator" content="Notepad++" />
+    <meta name="copyright" content="(c) 2019 Harm Coenen" />
+    <meta name="description" content="Familie Coenen Recordings - Recordings van het huis en omgeving van de familie Coenen te Beugen" />
+    <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
+    <meta name="author" content="Harm Coenen" />
+    <meta name="robots" content="index,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="recordings.css">
+    <link rel="stylesheet" href="w3-custom.css">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
 </head>
-<body>
+
+<body class="w3-pale-purple">
 
 <?php
 
 /* Define section */
+define("MAIN_URL", "http://www.familiecoenen.nl");
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings.php");
 define("RECORDINGS_DIRECTORY", "recordings");
 define("RECORDINGS_EXTENSION", "*.jpeg");
@@ -261,6 +232,7 @@ if (isset($_GET['picture'])) {
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
 } else {
+    echo("<th style='border:0px'><button onclick=\"location.href='" . MAIN_URL . "'\" class=\"button\">www.familiecoenen.nl</button></th>");
     echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
 }
 echo("</tr></table></center><br><br>");

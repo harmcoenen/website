@@ -66,7 +66,7 @@
             </div>
 
             <div id="slideshow" class="w3-container w3-animate-opacity item" style="display:none">
-                <div w3-include-html="pages/slideshow.html"></div> 
+                <div w3-include-html="pages/slideshow.html"></div>
             </div>
         </div>
 
@@ -124,31 +124,35 @@
 
                 /* If the selection is "slideshow" present the first slide */
                 if (document.getElementById(itemName).id == "slideshow") {
-                    showDivs(slideIndex);
+                    showSlides(slideIndex);
                 }
             }
 
+            var slideTimer;
             var slideIndex = 1;
 
-            function plusDivs(n) {
-                showDivs(slideIndex += n);
+            function plusSlide(n) {
+                clearTimeout(slideTimer);
+                showSlides(slideIndex += (n-1));
             }
 
-            function currentDiv(n) {
-                showDivs(slideIndex = n);
+            function currentSlide(n) {
+                clearTimeout(slideTimer);
+                showSlides(slideIndex = n);
             }
 
-            function showDivs(n) {
+            function showSlides(n) {
                 var i;
-                var x = document.getElementsByClassName("mySlides");
-                var dots = document.getElementsByClassName("demo");
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dots");
 
-                if (n > x.length) {slideIndex = 1}
-                if (n < 1) {slideIndex = x.length}
-                for (i = 0; i < x.length; i++) { x[i].style.display = "none"; }
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
                 for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" w3-white", ""); }
-                x[slideIndex-1].style.display = "block";
+                slides[slideIndex-1].style.display = "block";
                 dots[slideIndex-1].className += " w3-white";
+                slideTimer = setTimeout(showSlides, 3000, (slideIndex += 1)); // Change image every 3 seconds
             }
 
             /* Create the copyright signature using the current year */

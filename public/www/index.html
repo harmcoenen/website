@@ -30,7 +30,7 @@
             <a href="http://www.familiecoenen.nl"><h1 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>Website: Familie Coenen</b></h1></a>
         </header>
 
-       <div class="w3-container">
+        <div class="w3-container">
             <div class="w3-bar w3-card-4 w3-purple w3-text-white">
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-yellow" onclick="openItem(event,'vogels')">Vogels</button>
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'workshop')">Workshop met collega's</button>
@@ -38,10 +38,11 @@
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'cirkels')">Cirkels</button>
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'vannaar')">Van Naar</button>
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'deco')">Decoratief</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'feestdagen')">Feestdagen</button>
                 <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'slideshow')">Slideshow</button>
             </div>
 
-            <div id="vogels" class="w3-container w3-animate-opacity item">
+            <div id="vogels" class="w3-container item">
                 <div w3-include-html="pages/vogels.html"></div> 
             </div>
 
@@ -63,6 +64,10 @@
 
             <div id="deco" class="w3-container w3-animate-opacity item" style="display:none">
                 <div w3-include-html="pages/deco.html"></div> 
+            </div>
+
+            <div id="feestdagen" class="w3-container w3-animate-opacity item" style="display:none">
+                <div w3-include-html="pages/feestdagen.html"></div> 
             </div>
 
             <div id="slideshow" class="w3-container w3-animate-opacity item" style="display:none">

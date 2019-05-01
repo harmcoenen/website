@@ -20,17 +20,22 @@
     <body class="w3-pale-purple">
 
         <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
-            <a href="http://www.familiecoenen.nl"><img class="w3-left w3-circle" src="images/titelfoto.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.7" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7"></a>
-            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/cms">CMS Artikelen <i class='far fa-file-alt'></i></a>
-            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/recordings.php">Recordings  <i class='fas fa-camera'></i></a>
+            <div onclick="document.getElementById('titelfoto').style.display='block'"><img class="w3-left w3-circle" src="images/titelfoto.tiny.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.9" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></div>
+            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/cms">Artikelen <i class='far fa-file-alt'></i></a>
+            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.familiecoenen.nl/recordings.php">REC <i class='fas fa-camera'></i></a>
             <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="https://github.com/harmcoenen">GitHub <i class='fab fa-github'></i></a>
             <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.w3schools.com">w3schools <i class='fas fa-laptop'></i></a>
             <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="http://www.vios38.nl">VIOS '38 <i class='fas fa-futbol fa-spin'></i></a>
-            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="https://www.sprongvooruit.com">Sprong Vooruit  <i class='fas fa-horse-head'></i></a>
-            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="https://beugen.info">Info Beugen <i class="fa fa-info-circle fa-spin"></i></a>
-            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email  <i class='far fa-envelope'></i></a>
-            <a href="http://www.familiecoenen.nl"><h1 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>Website: Familie Coenen</b></h1></a>
+            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="https://www.sprongvooruit.com">Sprong Vooruit <i class='fas fa-horse-head'></i></a>
+            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="https://beugen.info">Info Beugen <i class="fa fa-info-circle"></i></a>
+            <a class="w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email <i class='far fa-envelope'></i></a>
+            <a href="http://www.familiecoenen.nl"><h1 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>website Familie Coenen</b></h1></a>
         </header>
+
+        <div id="titelfoto" class="w3-modal" style="display:none"><div class="w3-modal-content">
+            <span onclick="document.getElementById('titelfoto').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+            <img src="images/titelfoto.small.jpg" alt="" style="width:100%">
+        </div></div>
 
         <div class="w3-container">
             <div class="w3-bar w3-card-4 w3-purple w3-text-white">

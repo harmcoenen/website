@@ -58,10 +58,9 @@ function validate_ip($ip) {
 }
 
 $ip_address = get_ip_address();
-
-print "<br><br><center>| IP address: $ip_address |</center><br><br>";
-
-//echo ("<div class=\"w3-center w3-btn w3-text-blue w3-border-0 w3-border-pale-purple w3-round-large\">IP-ADDRESS: $ip_address</div>");
+print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+print "<a class=\"w3-center w3-btn w3-border w3-border-purple w3-round-large\" href=\"http://www.familiecoenen.nl\">IP address: $ip_address</a>";
+print "</div>";
 
 ?>
 

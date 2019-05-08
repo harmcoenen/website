@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
 </head>
 
-<body class="w3-pale-purple">
+<body class="w3-pale-purple w3-responsive">
 
 <?php
 
@@ -49,7 +49,8 @@ function humanReadable($bytes, $decimals = 2) {
 
 function printPath() {
         $path = getcwd();
-        echo("<center>Path: " . $path . "<br></center>");
+        print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+        print "Path: " . $path . "</div>";
 }
 
 function getFilter() {
@@ -111,21 +112,37 @@ function presentTimeslots($dir) {
             $bg_color = "#ccccff";
             rsort($timeslots);
             $n_timeslots = count($timeslots);
-            echo("<center><table style='width:90%'>");
-            echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
+
+            print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+            //print "<table class=\"w3-table-all\">";
+            print "<table style='width:90%'>";
+            print "<th colspan=\"$coloms\">$n_timeslots timeslots found</th>";
+            //echo("<center><table style='width:90%'>");
+            //echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
+
             for($index = 0; $index < $n_timeslots; $index++) {
                 $timeslot = $timeslots[$index];
                 if (($index % $slots_per_period) == 0) $bg_color = toggleBackGroundColor($bg_color);
-                if (($index % $coloms) == 0) echo("<tr bgcolor=$bg_color>");
-                echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
-                if ((($index + 1) % $coloms) == 0) echo("</tr>");
+                //if (($index % $coloms) == 0) echo("<tr bgcolor=$bg_color>");
+                if (($index % $coloms) == 0) print "<tr bgcolor=$bg_color>";
+                //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
+                print "<td><a class=\"w3-center w3-btn w3-border w3-border-purple w3-round-xxlarge\" href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'>$timeslot</a></td>";
+                //if ((($index + 1) % $coloms) == 0) echo("</tr>");
+                if ((($index + 1) % $coloms) == 0) print "</tr>";
             }
-            echo("</table></center>");
+            print "</table>";
+            print "</div>";
         } else {
-            echo("<center><h1>No timeslots found</h1></center>");
+            //echo("<center><h1>No timeslots found</h1></center>");
+            print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+            print "<h1>No timeslots found</h1>";
+            print "</div>";
         }
     } else {
-        echo("<center><h1>[$dir] is not a directory</h1></center>");
+        //echo("<center><h1>[$dir] is not a directory</h1></center>");
+        print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+        print "<h1>[$dir] is not a directory</h1>";
+        print "</div>";
     }
 }
 
@@ -219,23 +236,23 @@ function presentPicture($picture) {
 /* Main program */
 $starttime = microtime(true);
 
-echo("<center><table style='width:40%; border:0px'><tr>");
+print "<header class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
 if (isset($_GET['picture'])) {
     $refesh_page = getBase($_GET["picture"]);
     $filter = getFilter();
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'\" class=\"button\">Step back</button></th>");
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "'>Overview</a>";
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'>Step back</a>";
 } else if (isset($_GET['timeslot'])) {
     $refesh_page = $_GET["timeslot"];
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Overview</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'\" class=\"button\">All</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'\" class=\"button\">PIcam</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'\" class=\"button\">IPcam</button></th>");
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "'>Overview</a>";
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'>All</a>";
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'>PIcam</a>";
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'>IPcam</a>";
 } else {
-    echo("<th style='border:0px'><button onclick=\"location.href='" . MAIN_URL . "'\" class=\"button\">www.familiecoenen.nl</button></th>");
-    echo("<th style='border:0px'><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "'\" class=\"button\">Refresh</button></th>");
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . MAIN_URL . "'>www.familiecoenen.nl</a>";
+    print "<a class=\"w3-margin-left w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large\" href='" . RECORDINGS_PHP_URL . "'>Refresh</a>";
 }
-echo("</tr></table></center><br><br>");
+print "</header>";
 
 if (isset($_GET['picture'])) {
     presentPicture($_GET["picture"]);
@@ -247,7 +264,7 @@ if (isset($_GET['picture'])) {
 
 $stoptime = microtime(true);
 
-print "<br><br><center>| Execution time: " . number_format( ($stoptime - $starttime), 5) . " |</center><br><br>";
+print "<footer class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">| Execution time: " . number_format( ($stoptime - $starttime), 5) . " |</footer>";
 
 ?>
 

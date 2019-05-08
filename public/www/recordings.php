@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
 </head>
 
-<body class="w3-pale-purple w3-responsive">
+<body class="w3-pale-purple">
 
 <?php
 
@@ -113,10 +113,11 @@ function presentTimeslots($dir) {
             rsort($timeslots);
             $n_timeslots = count($timeslots);
 
-            print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+            //print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+            print "<div class='w3-container w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
             //print "<table class=\"w3-table-all\">";
-            print "<table style='width:90%'>";
-            print "<th colspan=\"$coloms\">$n_timeslots timeslots found</th>";
+            print "<table style='width:100%'>";
+            print "<th colspan='$coloms'>$n_timeslots timeslots found</th>";
             //echo("<center><table style='width:90%'>");
             //echo("<th colspan=\"$coloms\">$n_timeslots timeslots found</th>");
 
@@ -126,7 +127,7 @@ function presentTimeslots($dir) {
                 //if (($index % $coloms) == 0) echo("<tr bgcolor=$bg_color>");
                 if (($index % $coloms) == 0) print "<tr bgcolor=$bg_color>";
                 //echo("<td><button onclick=\"location.href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'\" class=\"button\">$timeslot</button></td>");
-                print "<td><a class=\"w3-center w3-btn w3-border w3-border-purple w3-round-xxlarge\" href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'>$timeslot</a></td>";
+                print "<td><a class='w3-center w3-btn w3-border w3-border-purple w3-round-xxlarge' href='" . RECORDINGS_PHP_URL . "?timeslot=$dir/$timeslot'>$timeslot</a></td>";
                 //if ((($index + 1) % $coloms) == 0) echo("</tr>");
                 if ((($index + 1) % $coloms) == 0) print "</tr>";
             }
@@ -134,13 +135,13 @@ function presentTimeslots($dir) {
             print "</div>";
         } else {
             //echo("<center><h1>No timeslots found</h1></center>");
-            print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+            print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
             print "<h1>No timeslots found</h1>";
             print "</div>";
         }
     } else {
         //echo("<center><h1>[$dir] is not a directory</h1></center>");
-        print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
+        print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
         print "<h1>[$dir] is not a directory</h1>";
         print "</div>";
     }

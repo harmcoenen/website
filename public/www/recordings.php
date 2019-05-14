@@ -26,6 +26,9 @@ define("RECORDINGS_DIRECTORY", "recordings");
 define("RECORDINGS_EXTENSION", "*.jpeg");
 define("RECORDINGS_IPCAM", "*[^p][^y].jpeg");
 define("RECORDINGS_PICAM", "*_py.jpeg");
+define("CTRL_DIR_UI", "/recordings/user_interrupt");
+define("CTRL_DIR_EO", "/recordings/error_occurred");
+define("CTRL_DIR_FR", "/recordings/force_reboot");
 
 /* Function section */
 function getBase($path) {
@@ -47,9 +50,8 @@ function humanReadable($bytes, $decimals = 2) {
 }
 
 function printPath() {
-        $path = getcwd();
         print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
-        print "Path: $path";
+        print "Path: " . getcwd();
         print "</div>";
 }
 
@@ -240,8 +242,55 @@ function presentPicture($picture) {
     }
 }
 
+function presentCtrlDirs($basepath) {
+    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-red w3-margin-top w3-margin-bottom w3-padding-4'>";
+    $ctrl_dir_style_present = "w3-small w3-margin w3-center w3-button w3-round-xlarge w3-red";
+    $ctrl_dir_style_not_present = "w3-small w3-margin w3-center w3-button w3-round-xlarge w3-pale-purple w3-text-purple w3-border w3-border-purple";
+    if (is_dir($basepath . CTRL_DIR_UI)) {
+        print "<a class='$ctrl_dir_style_present' href='" . RECORDINGS_PHP_URL . "?tcd=ui'>user interrupt</a>";
+    } else {
+        print "<a class='$ctrl_dir_style_not_present' href='" . RECORDINGS_PHP_URL . "?tcd=ui'>user interrupt</a>";
+    }
+    if (is_dir($basepath . CTRL_DIR_EO)) {
+        print "<a class='$ctrl_dir_style_present' href='" . RECORDINGS_PHP_URL . "?tcd=eo'>error occurred</a>";
+    } else {
+        print "<a class='$ctrl_dir_style_not_present' href='" . RECORDINGS_PHP_URL . "?tcd=eo'>error occurred</a>";
+    }
+    if (is_dir($basepath . CTRL_DIR_FR)) {
+        print "<a class='$ctrl_dir_style_present' href='" . RECORDINGS_PHP_URL . "?tcd=fr'>force reboot</a>";
+    } else {
+        print "<a class='$ctrl_dir_style_not_present' href='" . RECORDINGS_PHP_URL . "?tcd=fr'>force reboot</a>";
+    }
+    print "</div>";
+}
+function toggleCtrlDir($dir) {
+    if (is_dir($dir)) {
+        rmdir($dir);
+    } else {
+        mkdir($dir);
+    }
+}
+function handleCtrlDirs($basepath) {
+    if (isset($_GET['tcd'])) {
+        switch ($_GET['tcd']) {
+            case "ui": /* case for user interrupt */
+                toggleCtrlDir($basepath . CTRL_DIR_UI);
+                break;
+            case "eo": /* case for error occurred */
+                toggleCtrlDir($basepath . CTRL_DIR_EO);
+                break;
+            case "fr": /* case for force reboot */
+                toggleCtrlDir($basepath . CTRL_DIR_FR);
+                break;
+            default;
+                break;
+        }
+    }
+}
 /* Main program */
 $starttime = microtime(true);
+$basepath = getcwd();
+handleCtrlDirs($basepath);
 
 print "<header class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
 if (isset($_GET['picture'])) {
@@ -267,6 +316,7 @@ if (isset($_GET['picture'])) {
     presentPictures($_GET["timeslot"]);
 } else {
     presentTimeslots(RECORDINGS_DIRECTORY);
+    presentCtrlDirs($basepath);
 }
 
 $stoptime = microtime(true);

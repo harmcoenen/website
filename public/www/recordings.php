@@ -243,9 +243,9 @@ function presentPicture($picture) {
 }
 
 function presentCtrlDirs($basepath) {
-    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-red w3-margin-top w3-margin-bottom w3-padding-4'>";
-    $ctrl_dir_style_present = "w3-small w3-margin w3-center w3-button w3-round-xlarge w3-red";
-    $ctrl_dir_style_not_present = "w3-small w3-margin w3-center w3-button w3-round-xlarge w3-pale-purple w3-text-purple w3-border w3-border-purple";
+    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+    $ctrl_dir_style_present = "w3-small w3-margin w3-center w3-btn w3-round-xlarge w3-red w3-text-yellow w3-border w3-border-yellow";
+    $ctrl_dir_style_not_present = "w3-small w3-margin w3-center w3-btn w3-round-xlarge w3-pale-purple w3-text-purple w3-border w3-border-purple";
     if (is_dir($basepath . CTRL_DIR_UI)) {
         print "<a class='$ctrl_dir_style_present' href='" . RECORDINGS_PHP_URL . "?tcd=ui'>user interrupt</a>";
     } else {
@@ -263,6 +263,7 @@ function presentCtrlDirs($basepath) {
     }
     print "</div>";
 }
+
 function toggleCtrlDir($dir) {
     if (is_dir($dir)) {
         rmdir($dir);
@@ -270,6 +271,7 @@ function toggleCtrlDir($dir) {
         mkdir($dir);
     }
 }
+
 function handleCtrlDirs($basepath) {
     if (isset($_GET['tcd'])) {
         switch ($_GET['tcd']) {
@@ -287,6 +289,7 @@ function handleCtrlDirs($basepath) {
         }
     }
 }
+
 /* Main program */
 $starttime = microtime(true);
 $basepath = getcwd();

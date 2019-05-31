@@ -22,6 +22,7 @@
 /* Define section */
 define("MAIN_URL", "http://www.familiecoenen.nl");
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings/recordings.php");
+define("RTSP_LNK", "https://rtsp.me/embed/5eF2knd3/");
 define("RECORDINGS_DIRECTORY", ".");
 define("RECORDINGS_EXTENSION", "*.jpeg");
 define("RECORDINGS_IPCAM", "*[^p][^y].jpeg");
@@ -131,6 +132,12 @@ function presentTimeslots($dir) {
         print "<h1>[$dir] is not a directory</h1>";
         print "</div>";
     }
+}
+
+function presentRTSP($rtspme) {
+    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+    print "<iframe width='640' height='480' src='" . RTSP_LNK . "' frameborder='0' allowfullscreen></iframe>";
+    print "</div>";
 }
 
 function presentPictures($timeslot) {
@@ -299,17 +306,21 @@ print "<header class='w3-container w3-card w3-center w3-pale-purple w3-text-purp
 if (isset($_GET['picture'])) {
     $refesh_page = getBase($_GET["picture"]);
     $filter = getFilter();
-    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Overview</a>";
+    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Time Slots</a>";
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&$filter'>Step back</a>";
 } else if (isset($_GET['timeslot'])) {
     $refesh_page = $_GET["timeslot"];
-    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Overview</a>";
+    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Time Slots</a>";
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page'>All</a>";
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&picam'>PIcam</a>";
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "?timeslot=$refesh_page&ipcam'>IPcam</a>";
+} else if (isset($_GET['rtspme'])) {
+    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . MAIN_URL . "'>www.familiecoenen.nl</a>";
+    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Time Slots</a>";
 } else {
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . MAIN_URL . "'>www.familiecoenen.nl</a>";
     print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "'>Refresh</a>";
+    print "<a class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-border w3-border-purple w3-round-large' href='" . RECORDINGS_PHP_URL . "?rtspme=me'>Live Camera</a>";
 }
 print "</header>";
 
@@ -317,6 +328,8 @@ if (isset($_GET['picture'])) {
     presentPicture($_GET["picture"]);
 } else if (isset($_GET['timeslot'])) {
     presentPictures($_GET["timeslot"]);
+} else if (isset($_GET['rtspme'])) {
+    presentRTSP($_GET["rtspme"]);
 } else {
     presentTimeslots(RECORDINGS_DIRECTORY);
     presentCtrlDirs($basepath);

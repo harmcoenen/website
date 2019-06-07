@@ -98,57 +98,66 @@
             <img src="images/titelfoto.small.jpg" alt="" style="width:100%">
         </div></div>
 
-        <div class="w3-container">
+        <div id="glasinlood" class="w3-container">
             <div class="w3-bar w3-card-4 w3-purple w3-text-white">
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-yellow" onclick="openItem(event,'vogels')">Vogels</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'workshop')">Workshop met collega's</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'vlinders')">Vlinders</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'cirkels')">Cirkels</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'vannaar')">Van Naar</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'deco')">Decoratief</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'feestdagen')">Feestdagen</button>
-                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'slideshow')">Slideshow</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-yellow" onclick="openItem(event,'gil_vogels')">Vogels</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_workshop')">Workshop met collega's</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vlinders')">Vlinders</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_cirkels')">Cirkels</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vannaar')">Van Naar</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_deco')">Decoratief</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_feestdagen')">Feestdagen</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_slideshow')">Slideshow</button>
             </div>
 
-            <div id="vogels" class="w3-container item">
-                <div data-w3-include-html="pages/vogels.html"></div> 
+            <div id="gil_vogels" class="w3-container item">
+                <div data-w3-include-html="pages/gil_vogels.html"></div> 
             </div>
 
-            <div id="workshop" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/workshop.html"></div> 
+            <div id="gil_workshop" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_workshop.html"></div> 
             </div>
 
-            <div id="vlinders" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/vlinders.html"></div> 
+            <div id="gil_vlinders" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_vlinders.html"></div> 
             </div>
 
-            <div id="cirkels" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/cirkels.html"></div> 
+            <div id="gil_cirkels" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_cirkels.html"></div> 
             </div>
 
-            <div id="vannaar" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/vannaar.html"></div> 
+            <div id="gil_vannaar" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_vannaar.html"></div> 
             </div>
 
-            <div id="deco" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/deco.html"></div> 
+            <div id="gil_deco" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_deco.html"></div> 
             </div>
 
-            <div id="feestdagen" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/feestdagen.html"></div> 
+            <div id="gil_feestdagen" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_feestdagen.html"></div> 
             </div>
 
-            <div id="slideshow" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/slideshow.html"></div>
+            <div id="gil_slideshow" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_slideshow.html"></div>
             </div>
         </div>
 
         <footer class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
             <p id="copyrightyear" class="w3-left w3-text-black w3-small"></p>
-            <a class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large" href="http://www.familiecoenen.nl/ip-address.php">IP-address</a>
+            <a id="devbutton" class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large" onclick="checkCTRL(event)">________</a>
         </footer>
 
         <script>
+            function checkCTRL(event) {
+                var devbutton = document.getElementById("devbutton")
+                if (event.ctrlKey) {
+                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/develop.html');
+                } else {
+                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/ip-address.php');
+                }
+            }
+
             function includeHTML() {
                 var z, i, elmnt, file, xhttp;
 
@@ -195,8 +204,8 @@
                 /* Add the selection color to the selected tablink */
                 event.currentTarget.className += " w3-yellow";
 
-                /* If the selection is "slideshow" present the first slide */
-                if (document.getElementById(itemName).id == "slideshow") {
+                /* If the selection is "gil_slideshow" present the first slide */
+                if (document.getElementById(itemName).id == "gil_slideshow") {
                     showSlides(slideIndex = 1);
                 }
             }

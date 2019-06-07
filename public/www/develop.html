@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Familie Coenen</title>
+        <meta charset="UTF-8">
+        <!-- <meta http-equiv="refresh" content="3; URL=http://www.familiecoenen.nl/cms"> -->
+        <meta name="generator" content="Notepad++" />
+        <meta name="copyright" content="(c) 2019 Harm Coenen" />
+        <meta name="description" content="Familie Coenen WebSite - Informatie over de familie Coenen te Beugen" />
+        <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
+        <meta name="author" content="Harm Coenen" />
+        <meta name="robots" content="index,follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="w3.css">
+        <link rel="stylesheet" href="w3-custom.css">
+        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    </head>
+
+    <body class="w3-pale-purple">
+
+        <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
+            <div onclick="document.getElementById('titelfoto').style.display='block'"><img class="w3-left w3-circle" src="images/titelfoto.tiny.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.9" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></div>
+            <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton w3-lime" onclick="openBody(event,'glasinlood')">Glas in lood</div>
+            <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton" onclick="openBody(event,'links')">Web links</div>
+            <a class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email <i class='far fa-envelope'></i></a>
+            <a href="http://www.familiecoenen.nl"><h2 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>Website familie Coenen</b></h2></a>
+        </header>
+
+        <div id="titelfoto" class="w3-modal" style="display:none"><div class="w3-modal-content w3-animate-zoom">
+            <span onclick="document.getElementById('titelfoto').style.display='none'" class="w3-button w3-display-topright"><b>&times;</b></span>
+            <img src="images/titelfoto.small.jpg" alt="" style="width:100%">
+        </div></div>
+
+        <div id="glasinlood" class="w3-container body">
+            <div class="w3-bar w3-card-4 w3-purple w3-text-white">
+                <button id="gil_tl001" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-lime" onclick="openItem(event,'gil_vogels')">Vogels</button>
+                <button id="gil_tl002" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_workshop')">Workshop met collega's</button>
+                <button id="gil_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vlinders')">Vlinders</button>
+                <button id="gil_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_cirkels')">Cirkels</button>
+                <button id="gil_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vannaar')">Van Naar</button>
+                <button id="gil_tl006" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_deco')">Decoratief</button>
+                <button id="gil_tl007" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_feestdagen')">Feestdagen</button>
+                <button id="gil_tl008" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_slideshow')">Slideshow</button>
+            </div>
+
+            <div id="gil_vogels" class="w3-container item">
+                <div data-w3-include-html="pages/gil_vogels.html"></div> 
+            </div>
+
+            <div id="gil_workshop" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_workshop.html"></div> 
+            </div>
+
+            <div id="gil_vlinders" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_vlinders.html"></div> 
+            </div>
+
+            <div id="gil_cirkels" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_cirkels.html"></div> 
+            </div>
+
+            <div id="gil_vannaar" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_vannaar.html"></div> 
+            </div>
+
+            <div id="gil_deco" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_deco.html"></div> 
+            </div>
+
+            <div id="gil_feestdagen" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_feestdagen.html"></div> 
+            </div>
+
+            <div id="gil_slideshow" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/gil_slideshow.html"></div>
+            </div>
+        </div>
+
+        <div id="links" class="w3-container body" style="display:none">
+            <div class="w3-bar w3-card-4 w3-purple w3-text-white">
+                <button id="lnk_tl001" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-lime" onclick="openItem(event,'lnk_site')">Site</button>
+                <button id="lnk_tl002" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_algemeen')">Algemeen</button>
+                <button id="lnk_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_sport')">Sport</button>
+                <button id="lnk_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_ict')">ICT</button>
+                <button id="lnk_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_domein')">Domein</button>
+            </div>
+
+            <div id="lnk_site" class="w3-container item">
+                <div data-w3-include-html="pages/lnk_site.html"></div> 
+            </div>
+
+            <div id="lnk_algemeen" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/lnk_algemeen.html"></div> 
+            </div>
+
+            <div id="lnk_sport" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/lnk_sport.html"></div> 
+            </div>
+
+            <div id="lnk_ict" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/lnk_ict.html"></div> 
+            </div>
+
+            <div id="lnk_domein" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/lnk_domein.html"></div> 
+            </div>
+        </div>
+
+        <footer class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
+            <p id="copyrightyear" class="w3-left w3-text-black w3-small"></p>
+            <a id="devbutton" class="w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large" onclick="checkCTRL(event)">________</a>
+        </footer>
+
+        <script>
+            function checkCTRL(event) {
+                var devbutton = document.getElementById("devbutton")
+                if (event.ctrlKey) {
+                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/develop.html');
+                } else {
+                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/ip-address.php');
+                }
+            }
+
+            function includeHTML() {
+                var z, i, elmnt, file, xhttp;
+
+                /* Loop through a collection of all HTML elements */
+                z = document.getElementsByTagName("*");
+                for (i = 0; i < z.length; i++) {
+                    elmnt = z[i];
+                    /* Search for elements with a certain atrribute */
+                    file = elmnt.getAttribute("data-w3-include-html");
+                    if (file) {
+                        /* Make an HTTP request using the attribute value as the file name */
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4) {
+                                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                                /* Remove the attribute, and call this function once more */
+                                elmnt.removeAttribute("data-w3-include-html");
+                                includeHTML();
+                            }
+                        }
+                        xhttp.open("GET", file, true);
+                        xhttp.send();
+                        return;
+                    }
+                }
+            };
+
+            function openBody(event, bodyName) {
+                var i, bodies, bodybuttons;
+
+                /* Set all bodies to invisible */
+                bodies = document.getElementsByClassName("body");
+                for (i = 0; i < bodies.length; i++) {
+                    bodies[i].style.display = "none";
+                }
+                /* Remove the selection color from all bodybuttons */
+                bodybuttons = document.getElementsByClassName("bodybutton");
+                for (i = 0; i < bodybuttons.length; i++) {
+                    bodybuttons[i].className = bodybuttons[i].className.replace(" w3-lime", "");
+                }
+                /* Make the selected body visible */
+                document.getElementById(bodyName).style.display = "block";
+                /* Add the selection color to the selected bodybutton */
+                event.currentTarget.className += " w3-lime";
+            }
+
+            function openItem(event, itemName) {
+                var i, items, tablinks;
+                var prefix = itemName.substring(0, 3); /* Get first three characters from itemName */
+
+                /* Set all items, matching the itemName prefix, to invisible */
+                items = document.getElementsByClassName("item");
+                for (i = 0; i < items.length; i++) {
+                    if (items[i].id.startsWith(prefix)) {
+                        items[i].style.display = "none";
+                    }
+                }
+                /* Remove the selection color from all tablinks, matching the itemName prefix */
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].id.startsWith(prefix)) {
+                        tablinks[i].className = tablinks[i].className.replace(" w3-lime", "");
+                    }
+                }
+                /* Make the selected item visible */
+                document.getElementById(itemName).style.display = "block";
+                /* Add the selection color to the selected tablink */
+                event.currentTarget.className += " w3-lime";
+
+                /* If the selection is "gil_slideshow" present the first slide */
+                if (document.getElementById(itemName).id == "gil_slideshow") {
+                    showSlides(slideIndex = 1);
+                }
+            }
+
+            var slideTimer;
+            var slideIndex = 1;
+
+            function plusSlide(n) {
+                showSlides(slideIndex += (n-1));
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dots");
+
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+                for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" w3-white", ""); }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " w3-white";
+                clearTimeout(slideTimer);
+                slideTimer = setTimeout(showSlides, 3000, (slideIndex += 1)); /* Change image every 3 seconds */
+            }
+
+            /* Create the copyright signature using the current year */
+            var d = new Date();
+            document.getElementById("copyrightyear").innerHTML = "&copy; " + d.getFullYear() + " Familie Coenen";
+
+            /* Initial call to fill all items with their corresponding html pages */
+            includeHTML();
+        </script>
+    </body>
+</html>

@@ -1,12 +1,23 @@
 /* Padding */
 .w3-padding-4{padding-top:4px!important;padding-bottom:4px!important}
 .w3-padding-8{padding-top:8px!important;padding-bottom:8px!important}
-/* Colors */
+/* Color custom purple */
 .w3-pale-purple,.w3-hover-pale-purple:hover{color:#000!important;background-color:#ccccff!important}
 .w3-text-pale-purple,.w3-hover-text-pale-purple:hover{color:#ccccff!important}
 .w3-border-pale-purple,.w3-hover-border-pale-purple:hover{border-color:#ccccff!important}
-/* Animations */
-.w3-hover-opacity-custom:hover{opacity:0.80}
+.w3-my-purple,.w3-hover-my-purple:hover{color:#000!important;background-color:#990099!important}
+.w3-text-my-purple,.w3-hover-text-my-purple:hover{color:#990099!important}
+.w3-border-my-purple,.w3-hover-border-my-purple:hover{border-color:#990099!important}
+.w3-ws-purple,.w3-hover-ws-purple:hover{color:#000!important;background-color:#440099!important}
+.w3-text-ws-purple,.w3-hover-text-ws-purple:hover{color:#440099!important}
+.w3-border-ws-purple,.w3-hover-border-ws-purple:hover{border-color:#440099!important}
+/* Color custom yellow */
+.w3-my-yellow,.w3-hover-my-yellow:hover{color:#000!important;background-color:#ffff00!important}
+.w3-text-my-yellow,.w3-hover-text-my-yellow:hover{color:#ffff00!important}
+.w3-border-my-yellow,.w3-hover-border-my-yellow:hover{border-color:#ffff00!important}
+.w3-ws-yellow,.w3-hover-ws-yellow:hover{color:#000!important;background-color:#d9fa00!important}
+.w3-text-ws-yellow,.w3-hover-text-ws-yellow:hover{color:#d9fa00!important}
+.w3-border-ws-yellow,.w3-hover-border-ws-yellow:hover{border-color:#d9fa00!important}
 /* Slideshow */
 .mySlides {display:none}
 .w3-left, .w3-right, .w3-badge {cursor:pointer}

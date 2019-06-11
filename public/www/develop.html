@@ -21,8 +21,74 @@
 
         <header class="w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4">
             <div onclick="document.getElementById('titelfoto').style.display='block'"><img class="w3-left w3-circle" src="images/titelfoto.tiny.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.9" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></div>
-            <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton w3-lime" onclick="openBody(event,'glasinlood')">Glas in lood</div>
-            <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton" onclick="openBody(event,'links')">Web links</div>
+
+            <div class="w3-dropdown-hover">
+                <button class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large">Site</button>
+                <div class="w3-dropdown-content w3-bar-block w3-pale-purple w3-border w3-border-purple" style="width:200px">
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.familiecoenen.nl/recordings/recordings.php">Camera recordings <i class='fas fa-camera'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.familiecoenen.nl/recordings/recordings.php?rtspme=me">Live Camera <i class='fas fa-video'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.familiecoenen.nl/cms" target="_blank">CMS Artikelen <i class='far fa-file-alt'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.familiecoenen.nl/cms/administrator" target="_blank">CMS Admin <i class='fas fa-laptop'></i></a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover">
+                <button class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large">Links</button>
+                <div class="w3-dropdown-content w3-bar-block w3-pale-purple w3-border w3-border-purple" style="width:200px">
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://beugen.info">Info Beugen <i class="fa fa-info-circle"></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://web.whatsapp.com">WhatsApp Web <i class="fab fa-whatsapp"></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://github.com/harmcoenen">GitHub <i class='fab fa-github'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://travis-ci.org">Travis CI <i class='fas fa-user-secret'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.docker.com">Docker <i class='fab fa-docker'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.raspberrypi.org">RaspBerry Pi <i class='fab fa-raspberry-pi'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.nederland.fm">Nederland FM <i class='fas fa-music'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://evernote.com">Evernote <i class='far fa-edit'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.w3schools.com">W3 Schools <i class='fas fa-laptop'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://validator.w3.org">W3 Validator <i class='far fa-eye'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.google.com">Google <i class='fab fa-google'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.google.com/maps">Google Maps <i class='fab fa-google'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://translate.google.com">Google Translate <i class='fab fa-google'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.facebook.com">Facebook <i class='fab fa-facebook-square'></i></a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover">
+                <button class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large">Sport</button>
+                <div class="w3-dropdown-content w3-bar-block w3-pale-purple w3-border w3-border-purple" style="width:210px">
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://www.vios38.nl">VIOS '38 <i class='fas fa-futbol fa-spin'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.sprongvooruit.com">Sprong Vooruit <i class='fas fa-horse-head'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.formule1.nl">Formule 1 (nl) <i class='fas fa-tachometer-alt'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.formula1.com">Formula 1 (com) <i class='fas fa-tachometer-alt'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://wseries.com">WSeries <i class='fas fa-tachometer-alt'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.circuitzandvoort.nl/bezoeker/live-cam/">Zandvoort live-cam <i class='fas fa-video'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://dutchgp.com">Dutch GP <i class='fas fa-tachometer-alt'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.rkcwaalwijk.nl">RKC Waalwijk <i class='fas fa-futbol fa-spin'></i></a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.onsoranje.nl">Ons Oranje <i class='fas fa-futbol fa-spin'></i></a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover">
+                <button class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large">ICT</button>
+                <div class="w3-dropdown-content w3-bar-block w3-pale-purple w3-border w3-border-purple" style="width:140px">
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://insite.ict.eu">Insite</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://today.ict.eu">Today</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://ict.allsolutions.nl">Allsolutions</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://ict.eu/nl">ICT</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://account.activedirectory.windowsazure.com/r/#/profile">profile</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://account.activedirectory.windowsazure.com/r/#/applications">applications</a>
+                </div>
+            </div>
+
+            <div class="w3-dropdown-hover">
+                <button class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large">Domein</button>
+                <div class="w3-dropdown-content w3-bar-block w3-pale-purple w3-border w3-border-purple" style="width:220px">
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="http://webmail.familiecoenen.nl">Webmail</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://webmail.amenworld.nl/?chglng=nld">Amenworld webmail</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://www.amenworld.nl">Amenworld</a>
+                    <a class="w3-bar-item w3-button w3-text-purple w3-hover-teal" href="https://controlpanel.amenworld.nl/welcome.html">Amenworld controlpanel</a>
+                </div>
+            </div>
+
             <a class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email <i class='far fa-envelope'></i></a>
             <a href="http://www.familiecoenen.nl"><h2 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>Website familie Coenen</b></h2></a>
         </header>
@@ -32,16 +98,16 @@
             <img src="images/titelfoto.small.jpg" alt="" style="width:100%">
         </div></div>
 
-        <div id="glasinlood" class="w3-container body">
+        <div id="glasinlood" class="w3-container">
             <div class="w3-bar w3-card-4 w3-purple w3-text-white">
-                <button id="gil_tl001" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-lime" onclick="openItem(event,'gil_vogels')">Vogels</button>
-                <button id="gil_tl002" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_workshop')">Workshop met collega's</button>
-                <button id="gil_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vlinders')">Vlinders</button>
-                <button id="gil_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_cirkels')">Cirkels</button>
-                <button id="gil_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vannaar')">Van Naar</button>
-                <button id="gil_tl006" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_deco')">Decoratief</button>
-                <button id="gil_tl007" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_feestdagen')">Feestdagen</button>
-                <button id="gil_tl008" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_slideshow')">Slideshow</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-yellow" onclick="openItem(event,'gil_vogels')">Vogels</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_workshop')">Workshop met collega's</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vlinders')">Vlinders</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_cirkels')">Cirkels</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_vannaar')">Van Naar</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_deco')">Decoratief</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_feestdagen')">Feestdagen</button>
+                <button class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'gil_slideshow')">Slideshow</button>
             </div>
 
             <div id="gil_vogels" class="w3-container item">
@@ -74,36 +140,6 @@
 
             <div id="gil_slideshow" class="w3-container item" style="display:none">
                 <div data-w3-include-html="pages/gil_slideshow.html"></div>
-            </div>
-        </div>
-
-        <div id="links" class="w3-container body" style="display:none">
-            <div class="w3-bar w3-card-4 w3-purple w3-text-white">
-                <button id="lnk_tl001" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-lime" onclick="openItem(event,'lnk_site')">Site</button>
-                <button id="lnk_tl002" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_algemeen')">Algemeen</button>
-                <button id="lnk_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_sport')">Sport</button>
-                <button id="lnk_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_ict')">ICT</button>
-                <button id="lnk_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_domein')">Domein</button>
-            </div>
-
-            <div id="lnk_site" class="w3-container item">
-                <div data-w3-include-html="pages/lnk_site.html"></div> 
-            </div>
-
-            <div id="lnk_algemeen" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/lnk_algemeen.html"></div> 
-            </div>
-
-            <div id="lnk_sport" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/lnk_sport.html"></div> 
-            </div>
-
-            <div id="lnk_ict" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/lnk_ict.html"></div> 
-            </div>
-
-            <div id="lnk_domein" class="w3-container item" style="display:none">
-                <div data-w3-include-html="pages/lnk_domein.html"></div> 
             </div>
         </div>
 
@@ -150,47 +186,23 @@
                 }
             };
 
-            function openBody(event, bodyName) {
-                var i, bodies, bodybuttons;
-
-                /* Set all bodies to invisible */
-                bodies = document.getElementsByClassName("body");
-                for (i = 0; i < bodies.length; i++) {
-                    bodies[i].style.display = "none";
-                }
-                /* Remove the selection color from all bodybuttons */
-                bodybuttons = document.getElementsByClassName("bodybutton");
-                for (i = 0; i < bodybuttons.length; i++) {
-                    bodybuttons[i].className = bodybuttons[i].className.replace(" w3-lime", "");
-                }
-                /* Make the selected body visible */
-                document.getElementById(bodyName).style.display = "block";
-                /* Add the selection color to the selected bodybutton */
-                event.currentTarget.className += " w3-lime";
-            }
-
             function openItem(event, itemName) {
                 var i, items, tablinks;
-                var prefix = itemName.substring(0, 3); /* Get first three characters from itemName */
 
-                /* Set all items, matching the itemName prefix, to invisible */
+                /* Set all items to invisible */
                 items = document.getElementsByClassName("item");
                 for (i = 0; i < items.length; i++) {
-                    if (items[i].id.startsWith(prefix)) {
-                        items[i].style.display = "none";
-                    }
+                    items[i].style.display = "none";
                 }
-                /* Remove the selection color from all tablinks, matching the itemName prefix */
+                /* Remove the selection color from all tablinks */
                 tablinks = document.getElementsByClassName("tablink");
-                for (i = 0; i < tablinks.length; i++) {
-                    if (tablinks[i].id.startsWith(prefix)) {
-                        tablinks[i].className = tablinks[i].className.replace(" w3-lime", "");
-                    }
+                for (i = 0; i < items.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-yellow", "");
                 }
                 /* Make the selected item visible */
                 document.getElementById(itemName).style.display = "block";
                 /* Add the selection color to the selected tablink */
-                event.currentTarget.className += " w3-lime";
+                event.currentTarget.className += " w3-yellow";
 
                 /* If the selection is "gil_slideshow" present the first slide */
                 if (document.getElementById(itemName).id == "gil_slideshow") {
@@ -221,7 +233,7 @@
                 slides[slideIndex-1].style.display = "block";
                 dots[slideIndex-1].className += " w3-white";
                 clearTimeout(slideTimer);
-                slideTimer = setTimeout(showSlides, 3000, (slideIndex += 1)); /* Change image every 3 seconds */
+                slideTimer = setTimeout(showSlides, 3000, (slideIndex += 1)); // Change image every 3 seconds
             }
 
             /* Create the copyright signature using the current year */

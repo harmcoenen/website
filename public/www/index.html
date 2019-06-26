@@ -116,7 +116,11 @@
             function checkCTRL(event) {
                 var devbutton = document.getElementById("devbutton")
                 if (event.ctrlKey) {
-                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/develop.html');
+                    if (event.shiftKey) {
+                        devbutton.setAttribute('href', 'https://www.netflix.com');
+                    } else {
+                        devbutton.setAttribute('href', 'http://www.familiecoenen.nl/develop.html');
+                    }
                 } else {
                     devbutton.setAttribute('href', 'http://www.familiecoenen.nl/ip-address.php');
                 }

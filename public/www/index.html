@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="w3.css">
         <link rel="stylesheet" href="w3-custom.css">
         <link rel="shortcut icon" type="image/x-icon" href="images/favicon.jpg" />
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     </head>
 
     <body class="w3-pale-purple">
@@ -23,7 +23,7 @@
             <div onclick="document.getElementById('titelfoto').style.display='block'"><img class="w3-left w3-circle" src="images/titelfoto.tiny.jpg" alt="Family Picture" width="151" height="100" style="opacity:0.9" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.9"></div>
             <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton w3-lime" onclick="openBody(event,'glasinlood')">Glas in lood</div>
             <div class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton" onclick="openBody(event,'links')">Web links</div>
-            <a class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email <i class='far fa-envelope'></i></a>
+            <a class="w3-margin-bottom w3-btn w3-text-purple w3-border w3-border-purple w3-round-large" href="mailto:info@familiecoenen.nl">email <i class="far fa-envelope"></i></a>
             <a href="http://www.familiecoenen.nl"><h2 class="w3-right w3-text-purple" style="text-shadow:2px 2px 4px #444"><b>Website familie Coenen</b></h2></a>
         </header>
 
@@ -86,9 +86,10 @@
             <div class="w3-bar w3-card-4 w3-purple w3-text-white">
                 <button id="lnk_tl001" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink w3-lime" onclick="openItem(event,'lnk_site')">Site</button>
                 <button id="lnk_tl002" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_algemeen')">Algemeen</button>
-                <button id="lnk_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_sport')">Sport</button>
-                <button id="lnk_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_ict')">ICT</button>
-                <button id="lnk_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_domein')">Domein</button>
+                <button id="lnk_tl003" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_computer')">Computer</button>
+                <button id="lnk_tl004" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_sport')">Sport</button>
+                <button id="lnk_tl005" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_ict')">ICT</button>
+                <button id="lnk_tl006" class="w3-bar-item w3-button w3-hover-teal w3-border-right tablink" onclick="openItem(event,'lnk_domein')">Domein</button>
             </div>
 
             <div id="lnk_site" class="w3-container item">
@@ -97,6 +98,10 @@
 
             <div id="lnk_algemeen" class="w3-container item" style="display:none">
                 <div data-w3-include-html="pages/lnk_algemeen.html"></div> 
+            </div>
+
+            <div id="lnk_computer" class="w3-container item" style="display:none">
+                <div data-w3-include-html="pages/lnk_computer.html"></div> 
             </div>
 
             <div id="lnk_sport" class="w3-container item" style="display:none">
@@ -122,12 +127,12 @@
                 var devbutton = document.getElementById("devbutton")
                 if (event.ctrlKey) {
                     if (event.shiftKey) {
-                        document.getElementById('pepper_met_bal').style.display='block';
+                        document.getElementById("pepper_met_bal").style.display="block";
                     } else {
-                        devbutton.setAttribute('href', 'http://www.familiecoenen.nl/develop.html');
+                        devbutton.setAttribute("href", "http://www.familiecoenen.nl/develop.html");
                     }
                 } else {
-                    devbutton.setAttribute('href', 'http://www.familiecoenen.nl/ip-address.php');
+                    devbutton.setAttribute("href", "http://www.familiecoenen.nl/ip-address.php");
                 }
             }
 

@@ -65,14 +65,14 @@ function openItem(event, itemName) {
     /* Set all items, matching the itemName prefix, to invisible */
     items = document.getElementsByClassName("item");
     for (i = 0; i < items.length; i++) {
-        if (items[i].id.startsWith(prefix)) {
+        if (items[i].id.indexOf(prefix) == 0) { // startsWith prefix
             items[i].style.display = "none";
         }
     }
     /* Remove the selection color from all tablinks, matching the itemName prefix */
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < tablinks.length; i++) {
-        if (tablinks[i].id.startsWith(prefix)) {
+        if (tablinks[i].id.indexOf(prefix) == 0) { // startsWith prefix
             tablinks[i].className = tablinks[i].className.replace(" w3-lime", "");
         }
     }

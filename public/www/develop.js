@@ -83,12 +83,12 @@ function openItem(event, itemName) {
 
     /* If the selection is "gil_slideshow" present the first slide */
     if (document.getElementById(itemName).id == "gil_slideshow") {
-        showSlides(slideIndex = 1);
+        showSlides(slideIndex = 0);
     }
 }
 
 var slideTimer;
-var slideIndex = 1;
+var slideIndex = 0;
 
 function plusSlide(n) {
     showSlides(slideIndex += (n-1));
@@ -100,15 +100,33 @@ function currentSlide(n) {
 
 function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dots");
+    //var lSlides = document.getElementsByClassName("slidesLeft");
+    var mSlides = document.getElementsByClassName("slidesMiddle");
+    //var rSlides = document.getElementsByClassName("slidesRight");
+    var firstSlide = 0;
+    var lastSlide = mSlides.length - 1;
 
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-    for (i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" w3-white", ""); }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " w3-white";
+    if (n > lastSlide) { slideIndex = firstSlide }
+    if (n < firstSlide) { slideIndex = lastSlide }
+    for (i = 0; i < mSlides.length; i++) {
+        //lSlides[i].style.display = "none";
+        mSlides[i].style.display = "none";
+        //rSlides[i].style.display = "none";
+    }
+    if ( slideIndex == firstSlide ) {
+        //lSlides[lastSlide].style.display = "block";
+        mSlides[firstSlide].style.display = "block";
+        //rSlides[slideIndex+1].style.display = "block";
+    } else if ( slideIndex == lastSlide ) {
+        //lSlides[slideIndex-1].style.display = "block";
+        mSlides[lastSlide].style.display = "block";
+        //rSlides[firstSlide].style.display = "block";
+    } else {
+        //lSlides[slideIndex-1].style.display = "block";
+        mSlides[slideIndex].style.display = "block";
+        //rSlides[slideIndex+1].style.display = "block";
+    }
+
     clearTimeout(slideTimer);
     slideTimer = setTimeout(showSlides, 3000, (slideIndex += 1)); /* Change image every 3 seconds */
 }

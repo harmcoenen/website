@@ -93,6 +93,49 @@ function presentGilObjects($dir) {
     }
 }
 
+function presentGilSlideshow($gil_groups) {
+    // Create an empty array 
+    $slides=array();
+
+    $n_gil_groups = count($gil_groups);
+    for($gIndex = 0; $gIndex < $n_gil_groups; $gIndex++) {
+        $gil_group = $gil_groups[$gIndex];
+        if (is_dir($gil_group)) {
+            $return_dir = getcwd();
+            chdir($gil_group);
+            if ($gil_objects = glob(GIL_EXTENSIONS, GLOB_BRACE)) {
+                $n_gil_objects = count($gil_objects);
+                for($oIndex = 0; $oIndex < $n_gil_objects; $oIndex++) {
+                    $gil_object = $gil_objects[$oIndex];
+                    array_push($slides, GIL_GROUPS_DIR . "$gil_group/$gil_object"); 
+                }
+            }
+            chdir($return_dir);
+        }
+    }
+
+    $n_slides = count($slides);
+    if ($n_slides > 0) {
+        print "<div class='w3-row-padding w3-margin-top'>";
+        print "<div class='w3-content w3-display-container w3-mobile' style='width:500px'>";
+
+        for($sIndex = 0; $sIndex < $n_slides; $sIndex++) {
+            $slide = $slides[$sIndex];
+            print "<img class='slidesMiddle' src='$slide' style='width:100%;display:none'>";
+        }
+
+        print "<button class='w3-button w3-display-topleft w3-pale-purple w3-hover-text-purple' onclick=\"plusSlide(-1)\">&#10094;</button>";
+        print "<button class='w3-button w3-display-topright w3-pale-purple w3-hover-text-purple' onclick=\"plusSlide(1)\">&#10095;</button>";
+        print "</div>";
+        print "</div>";
+
+    } else {
+        print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+        print "<h3>No 'glas in lood' slides found</h3>";
+        print "</div>";
+    }
+}
+
 function presentGilGroups($dir) {
     if (is_dir($dir)) {
         $return_dir = getcwd();
@@ -111,6 +154,7 @@ function presentGilGroups($dir) {
                     print "<button id=\"gil_tl_$index\" class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'gil_$gil_group')\">$gil_group</button>";
                 }
             }
+            print "<button id=\"gil_tl_slideshow\" class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'gil_slideshow')\">Slideshow</button>";
             print "</div>";
 
             for($index = 0; $index < $n_gil_groups; $index++) {
@@ -123,6 +167,9 @@ function presentGilGroups($dir) {
                 presentGilObjects($gil_group);
                 print "</div>";
             }
+            print "<div id='gil_slideshow' class='w3-container item' style='display:none'>";
+            presentGilSlideshow($gil_groups);
+            print "</div>";
 
         } else {
             print "<div class='w3-bar w3-card-4 w3-purple w3-text-white w3-center w3-margin-top w3-margin-bottom w3-padding-4'>";
@@ -139,9 +186,6 @@ function presentGilGroups($dir) {
 }
 
 /* Main program */
-$starttime = microtime(true);
-$basepath = getcwd();
-
 print "<header class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
 print "<div onclick=\"document.getElementById('titelfoto').style.display='block'\"><img class='w3-left w3-circle' src='images/titelfoto.tiny.jpg' alt='Family Picture' width='151' height='100' style='opacity:0.9' onmouseover='this.style.opacity=1' onmouseout='this.style.opacity=0.9'></div>";
 print "<div class='w3-margin-bottom w3-margin-right w3-center w3-btn w3-text-purple w3-border w3-border-purple w3-round-large bodybutton w3-lime' onclick=\"openBody(event,'glasinlood')\">Glas in lood</div>";
@@ -181,18 +225,12 @@ print "<div id='lnk_ict' class='w3-container item' style='display:none'><div dat
 print "<div id='lnk_domein' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_domein.html'></div></div>";
 print "</div>";
 
-$stoptime = microtime(true);
-
-print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
-print "<div>|  Execution time: " . number_format( ($stoptime - $starttime), 5) . " sec.  |</div>";
-print "</div>";
-
 print "<footer class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
 print "<p id='copyrightyear' class='w3-left w3-text-black w3-small'></p>";
 print "<a id='devbutton' class='w3-right w3-btn w3-text-pale-purple w3-border-0 w3-border-pale-purple w3-round-large' onclick='checkCTRL(event)'>________</a>";
 print "</footer>";
 
-print "<script src='main.js'></script>";
+print "<script src='develop.js'></script>";
 
 ?>
 

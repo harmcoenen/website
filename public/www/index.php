@@ -41,9 +41,28 @@ function getFile($path) {
 }
 
 function printPath() {
-        print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
-        print "Path: " . getcwd();
-        print "</div>";
+    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+    print "Path: " . getcwd();
+    print "</div>";
+}
+
+function findGilObjectText($gil_object) {
+    $text = $gil_object;
+    $find = array(".jpg", ".jpeg", ".gif", ".png");
+    $replace = ".txt";
+    $txt_filename = str_ireplace($find, $replace, $gil_object); // Case-insensitive
+    if (file_exists($txt_filename)) {
+        /*
+        $file_handle = fopen($txt_filename, "r");
+        $text = fread($file_handle, filesize($txt_filename));
+        fclose($file_handle);
+        */
+        $text = file_get_contents($txt_filename);
+        if ($text === FALSE) {
+            $text = $gil_object;
+        }
+    }
+    return $text;
 }
 
 function presentGilObjects($dir) {
@@ -67,9 +86,10 @@ function presentGilObjects($dir) {
                     }
                 }
 
+                $gil_object_text = findGilObjectText($gil_object);
                 print "<div class='w3-quarter'><div class='w3-card w3-btn w3-margin-top' onclick=\"document.getElementById('$dir$index').style.display='block'\">";
                 print "<img src='" . GIL_GROUPS_DIR . "$dir/$gil_object' alt='' style='width:100%'>";
-                print "<div class='w3-container' style='white-space: normal'><h5>$gil_object</h5></div>";
+                print "<div class='w3-container' style='white-space: normal'><h5>$gil_object_text</h5></div>";
                 print "</div></div>";
                 print "<div id='$dir$index' class='w3-modal'><div class='w3-modal-content'>";
                 print "<span onclick=\"document.getElementById('$dir$index').style.display='none'\" class='w3-button w3-display-topright'><b>&times;</b></span>";

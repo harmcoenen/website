@@ -22,6 +22,7 @@
 /* Define section */
 define("MAIN_URL", "http://www.familiecoenen.nl");
 define("DETECTIONS_PHP_URL", "http://www.familiecoenen.nl/detections/detections.php");
+define("PHP_INFO_PHP_URL", "http://www.familiecoenen.nl/php-info.php");
 define("RTSP_LNK", "https://rtsp.me/embed/5eF2knd3/");
 define("DETECTIONS_DIRECTORY", ".");
 define("DETECTIONS_EXTENSION", "*.jpeg");
@@ -319,7 +320,7 @@ if (isset($_GET['picture'])) {
 
 $stoptime = microtime(true);
 
-print "<footer class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>| Execution time: " . number_format( ($stoptime - $starttime), 5) . " |</footer>";
+print "<footer class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>| Execution time: " . number_format( ($stoptime - $starttime), 5) . " | <a href='" . PHP_INFO_PHP_URL . "'>PHP version: " . phpversion() . " </a> |</footer>";
 
 ?>
 

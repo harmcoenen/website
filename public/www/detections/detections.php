@@ -23,7 +23,7 @@
 define("MAIN_URL", "http://www.familiecoenen.nl");
 define("DETECTIONS_PHP_URL", "http://www.familiecoenen.nl/detections/detections.php");
 define("PHP_INFO_PHP_URL", "http://www.familiecoenen.nl/php-info.php");
-define("RTSP_LNK", "https://rtsp.me/embed/5eF2knd3/");
+define("RTSP_FILE", "/htdocs/public/www/detections/rtsp_url.txt");
 define("DETECTIONS_DIRECTORY", ".");
 define("DETECTIONS_EXTENSION", "*.jpeg");
 define("CTRL_DIR_UI", "/user_interrupt");
@@ -123,9 +123,16 @@ function presentTimeslots($dir) {
 }
 
 function presentRTSP($rtspme) {
-    print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
-    print "<iframe width='640' height='480' src='" . RTSP_LNK . "' frameborder='0' allowfullscreen></iframe>";
-    print "</div>";
+    if (is_file(RTSP_FILE)) {
+        $rtsp_lnk = file_get_contents(RTSP_FILE);
+        print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+        print "<iframe width='640' height='480' src='$rtsp_lnk' frameborder='0' allowfullscreen></iframe>";
+        print "</div>";
+    } else {
+        print "<div class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";
+        print "File " . RTSP_FILE . " is missing";
+        print "</div>";
+    }
 }
 
 function presentPictures($timeslot) {

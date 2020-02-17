@@ -1,6 +1,6 @@
 public/www/recordings/.htaccess
 public/www/recordings/.htpasswd
-public/www/recordings/rtsp_url.txt
+public/www/recordings/.rtsp.url
 public/www/detections/.htaccess
 public/www/detections/.htpasswd
-public/www/detections/rtsp_url.txt
+public/www/detections/.rtsp.url

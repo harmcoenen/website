@@ -23,7 +23,7 @@
 define("MAIN_URL", "http://www.familiecoenen.nl");
 define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings/recordings.php");
 define("PHP_INFO_PHP_URL", "http://www.familiecoenen.nl/php-info.php");
-define("RTSP_FILE", "/htdocs/public/www/recordings/rtsp_url.txt");
+define("RTSP_FILE", "/htdocs/public/www/recordings/.rtsp.url");
 define("RECORDINGS_DIRECTORY", ".");
 define("RECORDINGS_EXTENSION", "*.jpeg");
 define("RECORDINGS_IPCAM", "*[^p][^y].jpeg");

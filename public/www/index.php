@@ -237,6 +237,7 @@ print "<button id='lnk_tl003' class='w3-bar-item w3-button w3-hover-teal w3-bord
 print "<button id='lnk_tl004' class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'lnk_sport')\">Sport</button>";
 print "<button id='lnk_tl005' class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'lnk_ict')\">ICT</button>";
 print "<button id='lnk_tl006' class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'lnk_domein')\">Domein</button>";
+print "<button id='lnk_tl007' class='w3-bar-item w3-button w3-hover-teal w3-border-right tablink' onclick=\"openItem(event,'lnk_mijn')\">Mijn</button>";
 print "</div>";
 print "<div id='lnk_site' class='w3-container item'><div data-w3-include-html='pages/lnk_site.html'></div></div>";
 print "<div id='lnk_algemeen' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_algemeen.html'></div></div>";
@@ -244,6 +245,7 @@ print "<div id='lnk_computer' class='w3-container item' style='display:none'><di
 print "<div id='lnk_sport' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_sport.html'></div></div>";
 print "<div id='lnk_ict' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_ict.html'></div></div>";
 print "<div id='lnk_domein' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_domein.html'></div></div>";
+print "<div id='lnk_mijn' class='w3-container item' style='display:none'><div data-w3-include-html='pages/lnk_mijn.html'></div></div>";
 print "</div>";
 
 print "<footer class='w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4'>";

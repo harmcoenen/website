@@ -23,7 +23,7 @@
 define("MAIN_URL", "https://www.familiecoenen.nl");
 define("DETECTIONS_PHP_URL", "https://www.familiecoenen.nl/detections/detections.php");
 define("PHP_INFO_PHP_URL", "https://www.familiecoenen.nl/php-info.php");
-define("RTSP_FILE", "/htdocs/public/www/detections/.rtsp.url");
+define("RTSP_FILE", "/public_html/detections/.rtsp.url");
 define("DETECTIONS_DIRECTORY", ".");
 define("DETECTIONS_EXTENSION", "*.jpeg");
 define("CTRL_DIR_UI", "/user_interrupt");

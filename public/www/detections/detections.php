@@ -4,7 +4,7 @@
     <title>Detections</title>
     <meta charset="UTF-8">
     <meta name="generator" content="Notepad++" />
-    <meta name="copyright" content="(c) 2019 Harm Coenen" />
+    <meta name="copyright" content="(c) 2024 Harm Coenen" />
     <meta name="description" content="Familie Coenen Detections - Detections van het huis en omgeving van de familie Coenen te Beugen" />
     <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
     <meta name="author" content="Harm Coenen" />
@@ -20,9 +20,9 @@
 <?php
 
 /* Define section */
-define("MAIN_URL", "http://www.familiecoenen.nl");
-define("DETECTIONS_PHP_URL", "http://www.familiecoenen.nl/detections/detections.php");
-define("PHP_INFO_PHP_URL", "http://www.familiecoenen.nl/php-info.php");
+define("MAIN_URL", "https://www.familiecoenen.nl");
+define("DETECTIONS_PHP_URL", "https://www.familiecoenen.nl/detections/detections.php");
+define("PHP_INFO_PHP_URL", "https://www.familiecoenen.nl/php-info.php");
 define("RTSP_FILE", "/htdocs/public/www/detections/.rtsp.url");
 define("DETECTIONS_DIRECTORY", ".");
 define("DETECTIONS_EXTENSION", "*.jpeg");

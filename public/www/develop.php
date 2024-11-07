@@ -4,7 +4,7 @@
     <title>Familie Coenen</title>
     <meta charset="UTF-8">
     <meta name="generator" content="Notepad++" />
-    <meta name="copyright" content="(c) 2019 Harm Coenen" />
+    <meta name="copyright" content="(c) 2024 Harm Coenen" />
     <meta name="description" content="Familie Coenen WebSite - Informatie over de familie Coenen te Beugen" />
     <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
     <meta name="author" content="Harm Coenen" />
@@ -21,7 +21,7 @@
 <?php
 
 /* Define section */
-define("MAIN_URL", "http://www.familiecoenen.nl");
+define("MAIN_URL", "https://www.familiecoenen.nl");
 define("MAIL_URL", "mailto:info@familiecoenen.nl");
 define("GIL_GROUPS_DIR", "images/gil/");
 define("GIL_EXTENSIONS", "*.{jpg,jpeg,gif,png}"); // to be used with GLOB_BRACE like: $gil_images = glob("/path/to/directory/*.{jpg,gif,png}", GLOB_BRACE); 

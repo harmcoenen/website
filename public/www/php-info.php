@@ -4,7 +4,7 @@
     <title>PHP Info</title>
     <meta charset="UTF-8">
     <meta name="generator" content="Notepad++" />
-    <meta name="copyright" content="(c) 2019 Harm Coenen" />
+    <meta name="copyright" content="(c) 2024 Harm Coenen" />
     <meta name="description" content="Familie Coenen PHP Info - PHP Info van het huis en omgeving van de familie Coenen te Beugen" />
     <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
     <meta name="author" content="Harm Coenen" />
@@ -20,9 +20,9 @@
 <?php
 
 /* Define section */
-define("MAIN_URL", "http://www.familiecoenen.nl");
-define("DETECTIONS_PHP_URL", "http://www.familiecoenen.nl/detections/detections.php");
-define("RECORDINGS_PHP_URL", "http://www.familiecoenen.nl/recordings/recordings.php");
+define("MAIN_URL", "https://www.familiecoenen.nl");
+define("DETECTIONS_PHP_URL", "https://www.familiecoenen.nl/detections/detections.php");
+define("RECORDINGS_PHP_URL", "https://www.familiecoenen.nl/recordings/recordings.php");
 
 /* Function section */
 function presentPHPInfo() {

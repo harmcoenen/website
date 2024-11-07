@@ -4,10 +4,10 @@ function checkCTRL(event) {
         if (event.shiftKey) {
             document.getElementById("pepper_met_bal").style.display="block";
         } else {
-            devbutton.setAttribute("href", "http://www.familiecoenen.nl/develop.html");
+            devbutton.setAttribute("href", "https://www.familiecoenen.nl/develop.html");
         }
     } else {
-        devbutton.setAttribute("href", "http://www.familiecoenen.nl/ip-address.php");
+        devbutton.setAttribute("href", "https://www.familiecoenen.nl/ip-address.php");
     }
 }
 

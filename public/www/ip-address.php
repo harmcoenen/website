@@ -4,7 +4,7 @@
     <title>ip-address</title>
     <meta charset="UTF-8">
     <meta name="generator" content="Notepad++" />
-    <meta name="copyright" content="(c) 2019 Harm Coenen" />
+    <meta name="copyright" content="(c) 2024 Harm Coenen" />
     <meta name="description" content="Familie Coenen IP address" />
     <meta name="keywords" content="Coenen,familiecoenen,familie coenen,Beugen" />
     <meta name="author" content="Harm Coenen" />
@@ -59,7 +59,7 @@ function validate_ip($ip) {
 
 $ip_address = get_ip_address();
 print "<div class=\"w3-container w3-card w3-center w3-pale-purple w3-text-purple w3-margin-top w3-margin-bottom w3-padding-4\">";
-print "<a class=\"w3-center w3-btn w3-border w3-border-purple w3-round-large\" href=\"http://www.familiecoenen.nl\">IP address: $ip_address</a>";
+print "<a class=\"w3-center w3-btn w3-border w3-border-purple w3-round-large\" href=\"https://www.familiecoenen.nl\">IP address: $ip_address</a>";
 print "</div>";
 
 ?>
